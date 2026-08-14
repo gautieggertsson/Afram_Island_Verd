@@ -29,6 +29,7 @@ mynd02_verdlag/
 |---|---|
 | `eurostat_prc_ppp_ind_2024.json` | Verðlagsvísitölur 2024 (A01, E011 og undirflokkar), ESB = 100 |
 | `eurostat_prc_ppp_ind_matvara_2024.json` | Verðlagsvísitölur matvöruflokka 2024 (kjöt, mjólkurvörur, fiskur o.fl.), ESB = 100 |
+| `eurostat_laun_a_launthega_2024.json` | Heildarlaunakostnaður (D1) og fjöldi launþega 2024, fyrir mælikvarðann án vinnustunda |
 | `eurostat_ilc_di03_2024_eur.json` | Miðgildi jafngildra ráðstöfunartekna 2024, evrur |
 | `eurostat_ilc_di03_is_2020.json` | Sama stærð fyrir Ísland 2020, krónur (síðasta mælda gildið) |
 | `eurostat_lc_lci_lev_20260714.json` | Launakostnaður á vinnustund, fryst 14.7.2026 |
@@ -52,6 +53,8 @@ python3 forrit/tek01001_naemniprof.py   # skattframtalsframreikningurinn
 python3 forrit/vlf_naemniprof.py        # VLF-lína næmniprófstöflunnar
 python3 forrit/utanesb_naemniprof.py    # samanburðurinn við Noreg og Sviss
 python3 forrit/matvara_undirflokkar.py  # verðlag matvöruflokka (mynd 4)
+python3 forrit/launthegar_naemniprof.py # næmnipróf án vinnustunda (laun á launþega)
+python3 forrit/vinnustundir_naemniprof.py # næmnipróf fyrir mælingu vinnustunda
 python3 forrit/gera_mynd_adhvarf.py     # endurgerð aðhvarfsmyndarinnar í Python
 ```
 
