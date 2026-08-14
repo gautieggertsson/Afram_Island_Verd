@@ -28,6 +28,7 @@ mynd02_verdlag/
 | Skrá | Efni |
 |---|---|
 | `eurostat_prc_ppp_ind_2024.json` | Verðlagsvísitölur 2024 (A01, E011 og undirflokkar), ESB = 100 |
+| `eurostat_prc_ppp_ind_matvara_2024.json` | Verðlagsvísitölur matvöruflokka 2024 (kjöt, mjólkurvörur, fiskur o.fl.), ESB = 100 |
 | `eurostat_ilc_di03_2024_eur.json` | Miðgildi jafngildra ráðstöfunartekna 2024, evrur |
 | `eurostat_ilc_di03_is_2020.json` | Sama stærð fyrir Ísland 2020, krónur (síðasta mælda gildið) |
 | `eurostat_lc_lci_lev_20260714.json` | Launakostnaður á vinnustund, fryst 14.7.2026 |
@@ -50,6 +51,7 @@ python3 forrit/tafla2_naemniprof.py     # SILC-línur næmniprófstöflunnar
 python3 forrit/tek01001_naemniprof.py   # skattframtalsframreikningurinn
 python3 forrit/vlf_naemniprof.py        # VLF-lína næmniprófstöflunnar
 python3 forrit/utanesb_naemniprof.py    # samanburðurinn við Noreg og Sviss
+python3 forrit/matvara_undirflokkar.py  # verðlag matvöruflokka (mynd 4)
 python3 forrit/gera_mynd_adhvarf.py     # endurgerð aðhvarfsmyndarinnar í Python
 ```
 
@@ -58,12 +60,13 @@ niðurstöður sínar og skrifar CSV-skrá í `nidurstodur/`; forritin bera
 lykiltölur saman við birtu gildin í greininni og stöðvast með villu ef
 eitthvað ber á milli.
 
-Myndir 1, 2 og 3 eru teiknaðar í MATLAB (R2024b). Keyrt úr rót pakkans:
+Myndir 1--4 eru teiknaðar í MATLAB (R2024b). Keyrt úr rót pakkans:
 
 ```
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd02_samisvisir.m')"
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd_kaupmattur.m')"
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd3_adhvarf.m')"
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd4_matvara.m')"
 ```
 
 Forritið `gera_mynd02.m` teiknar eldri útgáfu samanburðarmyndarinnar
