@@ -49,7 +49,8 @@ python3 forrit/adhvarf_naemniprof.py    # grunnmatið og úrtakspróf
 python3 forrit/tafla2_naemniprof.py     # SILC-línur næmniprófstöflunnar
 python3 forrit/tek01001_naemniprof.py   # skattframtalsframreikningurinn
 python3 forrit/vlf_naemniprof.py        # VLF-lína næmniprófstöflunnar
-python3 forrit/gera_mynd_adhvarf.py     # aðhvarfsmyndin (mynd 3)
+python3 forrit/utanesb_naemniprof.py    # samanburðurinn við Noreg og Sviss
+python3 forrit/gera_mynd_adhvarf.py     # endurgerð aðhvarfsmyndarinnar í Python
 ```
 
 Öll forritin eru keyrð úr `mynd02_verdlag/`. Hvert þeirra prentar
@@ -57,11 +58,12 @@ niðurstöður sínar og skrifar CSV-skrá í `nidurstodur/`; forritin bera
 lykiltölur saman við birtu gildin í greininni og stöðvast með villu ef
 eitthvað ber á milli.
 
-Myndir 1 og 2 eru teiknaðar í MATLAB (R2024b). Keyrt úr rót pakkans:
+Myndir 1, 2 og 3 eru teiknaðar í MATLAB (R2024b). Keyrt úr rót pakkans:
 
 ```
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd02_samisvisir.m')"
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd_kaupmattur.m')"
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd3_adhvarf.m')"
 ```
 
 Forritið `gera_mynd02.m` teiknar eldri útgáfu samanburðarmyndarinnar

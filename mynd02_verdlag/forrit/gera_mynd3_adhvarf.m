@@ -1,12 +1,12 @@
 %% gera_mynd3_adhvarf.m
-% Aðhvarfsmynd verðlagsgreinarinnar (mynd 3) með ríkjunum utan ESB.
+% Aðhvarfsmynd verðlagsgreinarinnar (mynd 3).
 %
 % Punktarit: launakostnaður á vinnustund 2024 á lárétta ásnum (log-kvarði)
 % og E011-verðlagsvísitala á þeim lóðrétta (log-kvarði). Aðhvarfslínan er
-% metin á ESB-ríkjunum 27; Ísland, Noregur og Sviss eru utan mats og sýnd
-% sérstaklega. Skyggða beltið er fast: metið log-verðlag ±2 staðalvillur
-% leifa. Launakostnaður Sviss er reiknaður úr gögnum svissnesku
-% hagstofunnar (sjá utanesb_naemniprof.py og frystu skrána).
+% metin á ESB-ríkjunum 27; Ísland er utan mats og sýnt sérstaklega.
+% Skyggða beltið er fast: metið log-verðlag ±2 staðalvillur leifa.
+% Samanburður við Noreg og Sviss er ekki á myndinni; hann er rakinn í
+% utanesb_naemniprof.py og í kafla 4.1 í greininni.
 %
 % Les eingöngu nidurstodur/adhvarf_utanesb.csv, sem forritið
 % utanesb_naemniprof.py skrifar úr frystum gögnum.
@@ -53,7 +53,7 @@ fig = figure('Visible','off', 'Units','inches', ...
     'Position',[1 1 7.6 5.4], 'Color','w');
 ax = axes(fig); hold(ax, 'on');
 
-gx = linspace(log(9), log(78), 200);
+gx = linspace(log(9), log(60), 200);
 gl = a + b * gx;
 fill(ax, exp([gx fliplr(gx)]), exp([gl - 2*s, fliplr(gl + 2*s)]), ...
     BLUE, 'FaceAlpha', 0.10, 'EdgeColor', 'none');
@@ -62,25 +62,19 @@ plot(ax, exp(gx), exp(gl), '-', 'Color', BLUE, 'LineWidth', 1.6);
 scatter(ax, E.launakostnadur_eur, E.pli_E011, 30, ...
     'MarkerFaceColor', GRAY, 'MarkerEdgeColor', 'none');
 
-utan = T(T.hlutverk == "utan" & T.geo ~= "IS", :);
-scatter(ax, utan.launakostnadur_eur, utan.pli_E011, 70, 'd', ...
-    'MarkerFaceColor', 'w', 'MarkerEdgeColor', INK, 'LineWidth', 1.1);
 scatter(ax, wIS, pIS, 80, 'o', ...
     'MarkerFaceColor', RED, 'MarkerEdgeColor', 'none');
 
 plot(ax, [wIS wIS], [predIS pIS], ':', 'Color', RED, 'LineWidth', 1.1);
-text(ax, wIS*1.02, pIS*1.01, sprintf('Ísland: 161,7\nspáð: 131 (+24%%)'), ...
-    'Color', RED, 'FontWeight', 'bold', 'FontSize', 9);
-text(ax, 53.7*1.02, 124.0*0.965, sprintf('Noregur (+2%% að jafnaði 2012-2024)'), ...
-    'Color', INK, 'FontSize', 8.5);
-text(ax, 69.59*0.99, 174.4*1.035, sprintf('Sviss (+19%%)'), ...
-    'Color', INK, 'FontSize', 8.5, 'HorizontalAlignment', 'right');
-text(ax, 9.6, 178, ...
+text(ax, wIS*0.97, pIS*1.005, sprintf('Ísland: 161,7\nspáð: 131 (+24%%)'), ...
+    'Color', RED, 'FontWeight', 'bold', 'FontSize', 9, ...
+    'HorizontalAlignment', 'right');
+text(ax, 9.6, 176, ...
     sprintf('ESB-ríkin 27 mynda regluna:\nhærri laun, hærra verðlag,\num 0,4%% á móti hverju 1%%'), ...
     'Color', MUT, 'FontSize', 8, 'VerticalAlignment', 'top');
 
 set(ax, 'XScale', 'log', 'YScale', 'log');
-ax.XTick = [10 15 20 30 40 55 75];
+ax.XTick = [10 15 20 30 40 55];
 ax.YTick = [60 80 100 120 140 160 180];
 ax.XTickLabel = string(ax.XTick);
 ax.YTickLabel = string(ax.YTick);
@@ -92,10 +86,10 @@ xlabel(ax, 'Launakostnaður á vinnustund 2024, evrur (log-kvarði)', ...
     'FontSize', 9, 'Color', INK);
 ylabel(ax, 'Verðlagsvísitala E011, ESB = 100 (log-kvarði)', ...
     'FontSize', 9, 'Color', INK);
-xlim(ax, [9 78]); ylim(ax, [52 195]);
+xlim(ax, [9 60]); ylim(ax, [52 180]);
 
-pdfPath = fullfile(OUT, 'm3_adhvarf_utanesb.pdf');
-pngPath = fullfile(OUT, 'm3_adhvarf_utanesb.png');
+pdfPath = fullfile(OUT, 'm3_adhvarf.pdf');
+pngPath = fullfile(OUT, 'm3_adhvarf.png');
 exportgraphics(fig, pdfPath, 'ContentType', 'vector');
 exportgraphics(fig, pngPath, 'Resolution', 240);
 close(fig);
