@@ -13,13 +13,17 @@ starfsfólks í fullu starfi þær flestu í Evrópu í launakönnun Eurostat
 vinnuár í þjóðhagsreikningum (Danmörk, Noregur) hafa jafnframt stutta
 vinnuviku; Ísland eitt parar langa vinnuviku við stutt vinnuár.
 
-Prófið reiknar vinnuárið beint úr samræmdu vinnuvikunni: virkar vikur
-hvers ríkis eru ársstundir þjóðhagsreikninga deilt með vinnuvikunni, og
-vinnuár Íslands er vinnuvika þess margfölduð með meðalfjölda virkra
-vikna í ESB. Tímakaupið lækkar að sama skapi og frávikið frá
-aðhvarfslínunni stækkar. Skekkjan liggur öll í eina átt: engin mæliröð
-styður færri stundir en opinbera talan, svo frávikið +24% í greininni
-er gólf og bilið 24 til 28% besta matið.
+Prófið reiknar vinnuárið á þrjá vegu án áætluðu raðarinnar:
+(1) beint úr vinnumarkaðsrannsókninni: vinnustundir þeirra sem eru að
+störfum margfaldaðar með hlutfalli þeirra sem eru við vinnu og vikum
+ársins; (2) úr launakönnun Eurostat: unnar stundir í fullu starfi
+færðar á alla launþega með hlutastarfshlutfalli og hlutastarfsvinnuviku
+vinnumarkaðsrannsóknarinnar; (3) varfærnast: vinnuvika Íslands
+margfölduð með meðalfjölda virkra vikna í ESB. Beinu mælingarnar tvær
+(1 og 2) gefa 1,62 til 1,65 þúsund stundir í stað 1,45 þúsund og frávik
+um 30 til 31%; leið (3) gefur +28%. Skekkjan liggur öll í eina átt:
+engin mæliröð styður færri stundir en opinbera talan, svo frávikið +24%
+í greininni er gólf og bilið 24 til 31% besta matið.
 
 Les eingöngu frystu skrárnar ``hra/eurostat_vinnustundir_2024.json`` og
 ``hra/eurostat_utanesb_adhvarf.json``.
@@ -93,9 +97,43 @@ def main() -> None:
     assert abs(vikur_is - 40.8) < 0.1, vikur_is
     assert abs(vikur_eu - 43.8) < 0.1, vikur_eu
 
-    # Leiðrétt vinnuár Íslands og tímakaup.
+    # (3) Varfærnasta leiðréttingin: vinnuvika Íslands x virkar vikur ESB.
     ar_leidrett = vika["IS"] * vikur_eu
     assert abs(ar_leidrett - 1560) < 2, ar_leidrett
+
+    # (1) Bein mæling vinnumarkaðsrannsóknarinnar 2024 (fryst hráafrit
+    # Hagstofutaflna): vinnustundir þeirra sem eru að störfum (VIN00941)
+    # x hlutfall við vinnu af starfandi (VIN00931) x 52 vikur.
+    v941 = fryst["vin00941_vinnustundir"]
+    yrs = v941["dimension"]["Ár"]["category"]["index"]
+    n_meas = v941["size"][-1]
+    vika_ad_storfum = v941["value"][yrs["2024"] * n_meas + 0]
+    assert abs(vika_ad_storfum - 36.3) < 0.05, vika_ad_storfum
+    v931 = {tuple(r["key"]): float(r["values"][0])
+            for r in fryst["vin00931_vid_vinnu"]["data"]}
+    starfandi = v931[("2024", "0", "0", "0", "1")]
+    vid_vinnu = v931[("2024", "0", "0", "0", "2")]
+    i_hlutastarfi = v931[("2024", "0", "0", "0", "4")]
+    ar_lfs = vika_ad_storfum * (vid_vinnu / starfandi) * 52
+    assert abs(ar_lfs - 1639) < 2, ar_lfs
+
+    # (2) Launakönnun Eurostat 2020: unnar stundir í fullu starfi
+    # (1.854) færðar á alla launþega með hlutastarfshlutfalli
+    # vinnumarkaðsrannsóknarinnar og hlutfalli vinnuviku í hlutastarfi
+    # og fullu starfi (VIN00941: 22,4/40,5). Borið saman við áætlaða
+    # vinnuárið sama ár, 1.479 stundir.
+    vika_ft = v941["value"][yrs["2024"] * n_meas + 1]
+    vika_pt = v941["value"][yrs["2024"] * n_meas + 2]
+    pt_hlutfall = i_hlutastarfi / starfandi
+    allir_a_moti_ft = (1 - pt_hlutfall) + pt_hlutfall * vika_pt / vika_ft
+    ar_lcs_2020 = lcs_is * allir_a_moti_ft
+    assert abs(ar_lcs_2020 - 1652) < 3, ar_lcs_2020
+    na20hw = list(fryst["arsstundir_2020_is"]["value"].values())[0]
+    na20per = list(fryst["launthegar_2020_is"]["value"].values())[0]
+    ar_na_2020 = na20hw / na20per
+    assert abs(ar_na_2020 - 1479.3) < 0.5, ar_na_2020
+    vanmat_2020 = ar_lcs_2020 / ar_na_2020
+    ar_lcs_2024 = ar_is * vanmat_2020
 
     # Aðhvarfslínan úr aðalmatinu (frysta skráin, árið 2024).
     g24 = json.loads((RAW / "eurostat_utanesb_adhvarf.json").read_text())["ar"]["2024"]
@@ -111,7 +149,10 @@ def main() -> None:
 
     rows = []
     for heiti, ar in [("Opinberar stundir þjóðhagsreikninga", ar_is),
-                      ("Vinnuvika Íslands x virkar vikur ESB", ar_leidrett)]:
+                      ("Vinnuvika Íslands x virkar vikur ESB", ar_leidrett),
+                      ("Vinnumarkaðsrannsókn beint (VIN00941/931)", ar_lfs),
+                      ("Launakönnun Eurostat, óbreytt stig", ar_lcs_2020),
+                      ("Launakönnun, vanmatshlutfall fært á 2024", ar_lcs_2024)]:
         w_kaup = W["IS"] * ar_is / ar
         spad = math.exp(a + b * math.log(w_kaup))
         fravik = P["IS"] / spad - 1
@@ -120,6 +161,9 @@ def main() -> None:
 
     assert abs(100 * rows[0][4] - 23.8) < 0.15, rows[0]
     assert abs(100 * rows[1][4] - 27.6) < 0.15, rows[1]
+    assert abs(100 * rows[2][4] - 30.3) < 0.15, rows[2]
+    assert abs(100 * rows[3][4] - 30.7) < 0.2, rows[3]
+    assert abs(100 * rows[4][4] - 29.8) < 0.2, rows[4]
 
     OUT.mkdir(exist_ok=True)
     with (OUT / "vinnustundir_naemniprof.csv").open("w", newline="") as f:
@@ -137,9 +181,9 @@ def main() -> None:
     for heiti, ar, w_kaup, spad, fravik in rows:
         print(f"  {heiti:38s} {ar:8,.1f} klst.  {w_kaup:5.2f} evrur  "
               f"spáð {spad:5.1f}  frávik {100*fravik:+5.1f}%")
-    print("Aðrar leiðréttingarleiðir (greiddar stundir launarannsóknar að")
-    print("frádregnu orlofi og helgidögum; eigin launakönnunarskil Íslands)")
-    print("gefa +28 til +31%. Bil greinarinnar: 24 til 28%.")
+    print("Beinu mælingarnar tvær gefa 1,62 til 1,65 þúsund stundir og frávik")
+    print("um 30 til 31%; varfærnasta leiðréttingin +28%. Bil greinarinnar:")
+    print("24 til 31%, og lægsta talan er notuð í meginmáli.")
 
 
 if __name__ == "__main__":
