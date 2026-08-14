@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "purpose": "Frosin frumgögn fyrir Mynd 2: tekjuleiðréttur kvarði og verðlag",
+  "manifest_written_at_utc": "2026-07-20T03:49:15+00:00",
+  "source_slide": {
+    "file_name": "stadreyndir-esb-island-juli-2026-2.pdf",
+    "slide": 20,
+    "title": "Verðlag á Íslandi er hátt en hvað ef við snúum kaupmáttarhugtakinu við og horfum á verðlagið í hlutfalli við ráðstöfunartekjur? Þá er Ísland ódýrt",
+    "pdf_creation_time": "2026-07-08T16:17:15Z",
+    "sha256": "03e7170879067a8ec3a0ee7256ea2fd746817560e8338180e2a8eb8043c18636",
+    "bytes": 6332456
+  },
+  "files": [
+    {
+      "file": "hra/eurostat_prc_ppp_ind_2024.json",
+      "source": "Eurostat",
+      "dataset": "prc_ppp_ind",
+      "method": "GET",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_ppp_ind?format=JSON&lang=EN&freq=A&na_item=PLI_EU27_2020&ppp_cat=A01&ppp_cat=A0101&ppp_cat=A0103&ppp_cat=A010405&ppp_cat=A010703&ppp_cat=A0111&ppp_cat=E011&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&geo=NO&geo=EU27_2020&time=2024",
+      "selectors": {
+        "freq": "A",
+        "na_item": "PLI_EU27_2020",
+        "ppp_cat": [
+          "A01",
+          "A0101",
+          "A0103",
+          "A010405",
+          "A010703",
+          "A0111",
+          "E011"
+        ],
+        "geo": [
+          "BE",
+          "BG",
+          "CZ",
+          "DK",
+          "DE",
+          "EE",
+          "IE",
+          "EL",
+          "ES",
+          "FR",
+          "HR",
+          "IT",
+          "CY",
+          "LV",
+          "LT",
+          "LU",
+          "HU",
+          "MT",
+          "NL",
+          "AT",
+          "PL",
+          "PT",
+          "RO",
+          "SI",
+          "SK",
+          "FI",
+          "SE",
+          "IS",
+          "NO",
+          "EU27_2020"
+        ],
+        "time": "2024"
+      },
+      "response_updated": "2025-07-10T11:00:00+0200",
+      "retrieved_at_utc": "2026-07-20T03:11:01+00:00",
+      "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
+      "sha256": "ef30059e44c0fb7657cbefb3ef14f53a00a569550c5671b96e3d3b20fbb29ef0",
+      "bytes": 6079
+    },
+    {
+      "file": "hra/eurostat_ilc_di03_2024_eur.json",
+      "source": "Eurostat",
+      "dataset": "ilc_di03",
+      "method": "GET",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_di03?format=JSON&lang=EN&freq=A&age=TOTAL&sex=T&statinfo=MED_EI&unit=EUR&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&geo=NO&geo=EU27_2020&time=2024",
+      "selectors": {
+        "freq": "A",
+        "age": "TOTAL",
+        "sex": "T",
+        "statinfo": "MED_EI",
+        "unit": "EUR",
+        "geo": [
+          "BE",
+          "BG",
+          "CZ",
+          "DK",
+          "DE",
+          "EE",
+          "IE",
+          "EL",
+          "ES",
+          "FR",
+          "HR",
+          "IT",
+          "CY",
+          "LV",
+          "LT",
+          "LU",
+          "HU",
+          "MT",
+          "NL",
+          "AT",
+          "PL",
+          "PT",
+          "RO",
+          "SI",
+          "SK",
+          "FI",
+          "SE",
+          "IS",
+          "NO",
+          "EU27_2020"
+        ],
+        "time": "2024"
+      },
+      "response_updated": "2026-06-08T23:00:00+0200",
+      "retrieved_at_utc": "2026-07-20T03:11:01+00:00",
+      "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
+      "sha256": "4ab25a4acc93734a6b97e097df738979c3f1a70f96d131e48735a9d222795a87",
+      "bytes": 4424
+    },
+    {
+      "file": "hra/eurostat_ilc_di03_is_2020.json",
+      "source": "Eurostat",
+      "dataset": "ilc_di03",
+      "method": "GET",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_di03?format=JSON&lang=EN&freq=A&age=TOTAL&sex=T&statinfo=MED_EI&unit=EUR&unit=NAC&unit=PPS&geo=IS&time=2020",
+      "selectors": {
+        "freq": "A",
+        "age": "TOTAL",
+        "sex": "T",
+        "statinfo": "MED_EI",
+        "unit": [
+          "EUR",
+          "NAC",
+          "PPS"
+        ],
+        "geo": "IS",
+        "time": "2020"
+      },
+      "response_updated": "2026-06-08T23:00:00+0200",
+      "retrieved_at_utc": "2026-07-20T03:11:01+00:00",
+      "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
+      "sha256": "524c16ffc6d0188a7908d76d8b199d0a66cb8cbcfe991b9b72d7ab9bb21fa35f",
+      "bytes": 3428
+    },
+    {
+      "file": "hra/eurostat_demo_pjan_is.json",
+      "source": "Eurostat",
+      "dataset": "demo_pjan",
+      "method": "GET",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?format=JSON&lang=EN&freq=A&unit=NR&age=TOTAL&sex=T&geo=IS&time=2019&time=2020&time=2021&time=2023&time=2024&time=2025",
+      "selectors": {
+        "freq": "A",
+        "unit": "NR",
+        "age": "TOTAL",
+        "sex": "T",
+        "geo": "IS",
+        "time": [
+          "2019",
+          "2020",
+          "2021",
+          "2023",
+          "2024",
+          "2025"
+        ]
+      },
+      "response_updated": "2026-07-09T11:00:00+0200",
+      "retrieved_at_utc": "2026-07-20T03:11:01+00:00",
+      "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
+      "sha256": "3c0d21fcf1d6410ebcac8d44868d092ef6399d83ca1207ec95e8111a6343b6d4",
+      "bytes": 2766
+    },
+    {
+      "file": "hra/hagstofa_thj06020_nuverandi_B6N.json",
+      "source": "Hagstofa Íslands",
+      "dataset": "THJ06020",
+      "method": "POST",
+      "url": "https://px.hagstofa.is/pxis/api/v1/is/Efnahagur/thjodhagsreikningar/tekjuskipting/tekjuskipting/THJ06020.px",
+      "selectors": {
+        "query": [
+          {
+            "code": "Skipting",
+            "selection": {
+              "filter": "item",
+              "values": [
+                "7"
+              ]
+            }
+          },
+          {
+            "code": "Ár",
+            "selection": {
+              "filter": "item",
+              "values": [
+                "2000",
+                "2001",
+                "2002",
+                "2003",
+                "2004",
+                "2005",
+                "2006",
+                "2007",
+                "2008",
+                "2009",
+                "2010",
+                "2011",
+                "2012",
+                "2013",
+                "2014",
+                "2015",
+                "2016",
+                "2017",
+                "2018",
+                "2019",
+                "2020",
+                "2021",
+                "2022",
+                "2023",
+                "2024"
+              ]
+            }
+          },
+          {
+            "code": "Geiri",
+            "selection": {
+              "filter": "item",
+              "values": [
+                "S.14"
+              ]
+            }
+          }
+        ],
+        "response": {
+          "format": "json"
+        }
+      },
+      "retrieved_at_utc": "2026-07-20T03:16:30+00:00",
+      "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
+      "sha256": "2a3526ae8d0241cfd1df528f20f795de2d1694f150a15bfb49fad43b37601152",
+      "bytes": 1592
+    },
+    {
+      "file": "hra/hagstofa_frett_vintage_2025-04-04_PrrvG.csv",
+      "source": "Hagstofa Íslands, frétt 4. apríl 2025",
+      "dataset": "Datawrapper PrrvG/1",
+      "method": "GET",
+      "url": "https://datawrapper.dwcdn.net/PrrvG/1/dataset.csv",
+      "selectors": {
+        "source_page": "https://hagstofa.is/utgafur/frettasafn/thjodhagsreikningar/tekjuskiptingaruppgjor-2024-heimilisgeirinn-aaetlun/",
+        "series_used": "Ráðstöfunartekjur (tekjur - gjöld)",
+        "years": [
+          "2020",
+          "2024"
+        ],
+        "status": "bráðabirgðavintage birt 2025-04-04"
+      },
+      "retrieved_at_utc": "2026-07-20T03:16:30+00:00",
+      "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
+      "sha256": "1c8ec925d33d76269258cbed6109cf139da4546b03a09735a211cd062f8b57db",
+      "bytes": 1231
+    },
+    {
+      "file": "hra/hagstofa_thj06020_lysigogn.json",
+      "source": "Hagstofa Íslands",
+      "dataset": "THJ06020 metadata",
+      "method": "GET",
+      "url": "https://px.hagstofa.is/pxis/api/v1/is/Efnahagur/thjodhagsreikningar/tekjuskipting/tekjuskipting/THJ06020.px",
+      "retrieved_at_utc": "2026-07-20T03:11:01+00:00",
+      "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
+      "sha256": "50b9f40c682632fbdd661b63dd42da6091b9a79e4e854840477d7a0ee6b7da14",
+      "bytes": 1234
+    },
+    {
+      "file": "hra/sedlabanki_eur_midgengi_2024.csv",
+      "source": "Seðlabanki Íslands",
+      "dataset": "XML-timeseries 4064",
+      "method": "GET",
+      "url": "https://www.sedlabanki.is/xmltimeseries/Default.aspx?DagsFra=2024-01-01&DagsTil=2024-12-31&TimeSeriesID=4064&Type=csv",
+      "selectors": {
+        "TimeSeriesID": 4064,
+        "currency": "EUR",
+        "measure": "skráð miðgengi",
+        "frequency": "D",
+        "period": "2024-01-01/2024-12-31"
+      },
+      "retrieved_at_utc": "2026-07-20T03:11:01+00:00",
+      "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
+      "sha256": "23d8132ac5dcb66c3ab35d7b2822c49da88f364386ec85b2d99be6c60abdddd7",
+      "bytes": 25388
+    }
+  ],
+  "validation": {
+    "built_from_frozen_files_only": true,
+    "workbook": "gogn/mynd02_verdlag_frosin.xlsx",
+    "price_response_updated": "2025-07-10T11:00:00+0200",
+    "income_response_updated": "2026-06-08T23:00:00+0200",
+    "cbi_observations": 249,
+    "eu_median_income_eur": 21582,
+    "iceland_base_median_nac": 4933016,
+    "iceland_b6g_growth_2020_2024": 1.5701306652320417,
+    "iceland_b6g_per_capita_growth_2020_2024": 1.4456062365789495,
+    "iceland_fx_2024": 149.3103212851404,
+    "iceland_projected_income_eur": 51875.045388782164,
+    "iceland_adjusted_A01": 71.84979544723443,
+    "iceland_adjusted_rank_desc": 27,
+    "iceland_A01": 172.7,
+    "iceland_A01_rank_desc": 1,
+    "iceland_E011": 161.7,
+    "iceland_E011_rank_desc": 1,
+    "hungary_current_median_income_eur": 8488,
+    "hungary_implied_income_lower_eur": 8800.302089552239,
+    "hungary_implied_income_upper_eur": 8829.558974358974,
+    "hungary_implied_income_used_eur": 8815,
+    "source_cells_reproduced_by_current_vintage_after_rounding": 108,
+    "source_cells_requiring_implied_hungary_vintage": 6,
+    "source_cells_reproduced_by_final_replication_after_rounding": 114
+  }
+}

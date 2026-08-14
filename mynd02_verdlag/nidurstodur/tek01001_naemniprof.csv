@@ -1,0 +1,22 @@
+stærð;gildi;eining
+TEK01001 miðgildi 2020;4482;þús. kr.
+TEK01001 miðgildi 2024;6339;þús. kr.
+Vaxtastuðull skattframtalsmiðgildis 2020-2024;1.414324;hlutfall
+SILC-miðgildi Íslands, time=2020;4933016;ISK
+Meðalgengi evru 2024;149.310321;ISK/EUR
+Framreiknað miðgildi með vexti skattframtalsmiðgildis;46727.397518;EUR
+Tekjuhlutfall Íslands og ESB;2.16511;hlutfall
+Tekjuleiðrétt gildi, A01 (glæra 20: 72);79.765011;vísitala
+Tekjuleiðrétt gildi, E011;74.684438;vísitala
+Aðhvarf E011: teygni;0.414026;hlutfall
+Aðhvarf E011: R2;0.881624;hlutfall
+Aðhvarf E011: staðalvilla leifa;0.079513;log-einingar
+Aðhvarf E011: spáð verðlag Íslands;140.201829;vísitala
+Aðhvarf E011: frávik Íslands;0.153337;hlutfall
+Aðhvarf E011: frávik í staðalvillum leifa;1.79416;staðalvillur
+Aðhvarf A01: teygni;0.497433;hlutfall
+Aðhvarf A01: R2;0.924008;hlutfall
+Aðhvarf A01: staðalvilla leifa;0.074766;log-einingar
+Aðhvarf A01: spáð verðlag Íslands;150.22315;vísitala
+Aðhvarf A01: frávik Íslands;0.149623;hlutfall
+Aðhvarf A01: frávik í staðalvillum leifa;1.864938;staðalvillur

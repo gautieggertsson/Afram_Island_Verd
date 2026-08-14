@@ -1,0 +1,25 @@
+stærð;gildi;eining
+Grunnmat (ESB-27, Ísland utan mats): fjöldi landa í mati;27;lönd
+Grunnmat (ESB-27, Ísland utan mats): halli (teygni);0.423789;hlutfall
+Grunnmat (ESB-27, Ísland utan mats): staðalfrávik hallamats;0.032598;hlutfall
+Grunnmat (ESB-27, Ísland utan mats): R2;0.871141;hlutfall
+Grunnmat (ESB-27, Ísland utan mats): staðalfrávik frá matslínunni;0.08296;log-einingar
+Grunnmat (ESB-27, Ísland utan mats): spáð/metið verðlag Íslands;130.638175;vísitala
+Grunnmat (ESB-27, Ísland utan mats): frávik Íslands;0.23777;hlutfall
+Grunnmat (ESB-27, Ísland utan mats): frávik í staðalfrávikum;2.571266;staðalfrávik
+Ísland innan úrtaks (28 lönd): fjöldi landa í mati;28;lönd
+Ísland innan úrtaks (28 lönd): halli (teygni);0.445656;hlutfall
+Ísland innan úrtaks (28 lönd): staðalfrávik hallamats;0.034146;hlutfall
+Ísland innan úrtaks (28 lönd): R2;0.867578;hlutfall
+Ísland innan úrtaks (28 lönd): staðalfrávik frá matslínunni;0.090422;log-einingar
+Ísland innan úrtaks (28 lönd): spáð/metið verðlag Íslands;133.722846;vísitala
+Ísland innan úrtaks (28 lönd): frávik Íslands;0.209217;hlutfall
+Ísland innan úrtaks (28 lönd): frávik í staðalfrávikum;2.100957;staðalfrávik
+Án Lúxemborgar og Írlands (25 lönd, Ísland utan mats): fjöldi landa í mati;25;lönd
+Án Lúxemborgar og Írlands (25 lönd, Ísland utan mats): halli (teygni);0.407727;hlutfall
+Án Lúxemborgar og Írlands (25 lönd, Ísland utan mats): staðalfrávik hallamats;0.033979;hlutfall
+Án Lúxemborgar og Írlands (25 lönd, Ísland utan mats): R2;0.862264;hlutfall
+Án Lúxemborgar og Írlands (25 lönd, Ísland utan mats): staðalfrávik frá matslínunni;0.079935;log-einingar
+Án Lúxemborgar og Írlands (25 lönd, Ísland utan mats): spáð/metið verðlag Íslands;128.18464;vísitala
+Án Lúxemborgar og Írlands (25 lönd, Ísland utan mats): frávik Íslands;0.261462;hlutfall
+Án Lúxemborgar og Írlands (25 lönd, Ísland utan mats): frávik í staðalfrávikum;2.905751;staðalfrávik
