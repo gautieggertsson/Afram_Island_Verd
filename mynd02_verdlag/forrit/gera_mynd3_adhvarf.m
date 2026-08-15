@@ -61,6 +61,10 @@ plot(ax, exp(gx), exp(gl), '-', 'Color', BLUE, 'LineWidth', 1.6);
 
 scatter(ax, E.launakostnadur_eur, E.pli_E011, 30, ...
     'MarkerFaceColor', GRAY, 'MarkerEdgeColor', 'none');
+for i = 1:height(E)
+    text(ax, E.launakostnadur_eur(i)*1.025, E.pli_E011(i), E.geo(i), ...
+        'FontSize', 6, 'Color', MUT);
+end
 
 scatter(ax, wIS, pIS, 80, 'o', ...
     'MarkerFaceColor', RED, 'MarkerEdgeColor', 'none');
@@ -82,7 +86,7 @@ ax.XMinorTick = 'off'; ax.YMinorTick = 'off';
 ax.XAxis.MinorTickValues = []; ax.YAxis.MinorTickValues = [];
 ax.FontSize = 8; ax.XColor = MUT; ax.YColor = MUT;
 ax.TickDir = 'out'; ax.Box = 'off';
-xlabel(ax, 'Launakostnaður á vinnustund 2024, evrur (log-kvarði)', ...
+xlabel(ax, 'Laun á klukkustund 2024, evrur (log-kvarði)', ...
     'FontSize', 9, 'Color', INK);
 ylabel(ax, 'Verðlagsvísitala E011, ESB = 100 (log-kvarði)', ...
     'FontSize', 9, 'Color', INK);
