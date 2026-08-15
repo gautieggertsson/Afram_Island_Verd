@@ -1,14 +1,38 @@
 # Áfram_Island_Verd — gagna- og endurgerðarpakki verðlagsgreinarinnar
 
-Gagnapakki greinarinnar **„Ísland er mjög dýrt land“** (Gauti B. Eggertsson,
-2026), sem metur fullyrðingu Áfram Íslands um að Ísland sé „ódýrt“ þegar
-verðlagi er deilt með tekjum. Fullyrðingin er sett fram á síðu 20 í
-greiningu Kontext ehf. fyrir RSE og Áfram Ísland frá júlí 2026.
+Gagnapakki greinarinnar **„Ísland er mjög dýrt land"** (Gauti B.
+Eggertsson, 2026). Greinin mælir hve mikið af verðlagi á Íslandi launin
+skýra, ber niðurstöðuna saman við reynslu ríkjanna sem gengu í ESB árið
+1995 og metur fullyrðingu Áfram Íslands um að verðlag hér sé 28% undir
+meðaltali ESB, sem sett er fram á síðu 20 í greiningu Kontext ehf. fyrir
+RSE og Áfram Ísland frá júlí 2026.
 
-Pakkinn geymir frosin hráafrit allra gagna sem greinin notar, forritin sem
-endurgera hverja birta tölu og hverja mynd, og niðurstöðuskrárnar sem út
-koma. Ekkert forrit sækir gögn af netinu; allt les úr frystu skránum í
-`mynd02_verdlag/hra/`.
+Pakkinn geymir frosin hráafrit allra gagna sem greinin notar, forritin
+sem endurgera hverja birta tölu og hverja mynd, og niðurstöðuskrárnar
+sem út koma. Ekkert forrit sækir gögn af netinu; allt les úr frystu
+skránum í `mynd02_verdlag/hra/`. Hvert forrit ber lykiltölur saman við
+birtu gildin í greininni og stöðvast með villu ef eitthvað ber á milli.
+
+## Helstu tölur greinarinnar sem pakkinn endurgerir
+
+- Verðlag Íslands 2024: 161,7 (einkaneysluútgjöld heimila) og 172,7
+  (einstaklingsbundin neysla), meðaltal ESB = 100.
+- Aðhvarf verðlags á laun á klukkustund, metið á ESB-ríkjunum 27:
+  halli 0,42, R² 0,87; spáð verðlag Íslands 131, frávik +23,8%.
+- Bil matsins, 24 til 31%, eftir því hvernig vinnustundir eru mældar;
+  mælikvarði án vinnustunda (laun á hvern launþega) gefur +20,9%.
+- Endurgerð 28%-tölunnar: 0,72 á kvarða greiningarinnar, ásamt
+  næmniprófum á framreikningi teknanna (20 til 22% í stað 28).
+- Inngöngusamanburðurinn: frávik Finnlands, Svíþjóðar og Austurríkis
+  frá metnu sambandi hvert ár 1995 til 2024 (Finnland +18,8% við
+  inngöngu, +9,9% árið 2024; Austurríki við línuna allan tímann).
+- Verðlag matvöruflokka 2024: kjöt +72,5%, mjólkurvörur og egg +71,7%,
+  fiskur +10,1%.
+- Sæti Íslands í neyslu á mann: 4. sæti nú, efsta sæti félli
+  hlutfallslegt verðlag að spágildinu.
+- Samanburðurinn við Noreg og Sviss: meðalfrávik allra ára
+  launakönnunarinnar (Noregur +2,2%, Sviss +16,0%; Ísland +17 til +29%
+  öll ár frá 2016).
 
 ## Uppbygging
 
@@ -28,13 +52,15 @@ mynd02_verdlag/
 | Skrá | Efni |
 |---|---|
 | `eurostat_prc_ppp_ind_2024.json` | Verðlagsvísitölur 2024 (A01, E011 og undirflokkar), ESB = 100 |
-| `eurostat_prc_ppp_ind_matvara_2024.json` | Verðlagsvísitölur matvöruflokka 2024 (kjöt, mjólkurvörur, fiskur o.fl.), ESB = 100 |
+| `eurostat_prc_ppp_ind_matvara_2024.json` | Verðlagsvísitölur matvöruflokka 2024 (kjöt, mjólkurvörur, fiskur o.fl.) |
+| `eurostat_utanesb_adhvarf.json` | Verðlag og launakostnaður öll ár launakönnunarinnar 2012–2024, fyrir aðhvarfið og samanburðinn við Noreg og Sviss |
+| `eurostat_lc_lci_lev_20260714.json` | Launakostnaður á vinnustund, fryst 14.7.2026 |
 | `eurostat_laun_a_launthega_2024.json` | Heildarlaunakostnaður (D1) og fjöldi launþega 2024, fyrir mælikvarðann án vinnustunda |
-| `eurostat_vinnustundir_2024.json` | Vinnuvika (LFS), vinnuár þjóðhagsreikninga og stundir launakönnunar Eurostat, fyrir næmnipróf vinnustunda |
-| `eurostat_innganga_1995_2024.json` | Verðlag og laun á launþega 1995–2024, fyrir inngöngusamanburðinn (mynd 5) |
+| `eurostat_vinnustundir_2024.json` | Vinnuvika (LFS), vinnuár þjóðhagsreikninga, stundir launakönnunar Eurostat og vinnumarkaðsrannsóknartöflur Hagstofunnar (VIN00941, VIN00931), fyrir næmnipróf vinnustunda |
+| `eurostat_innganga_1995_2024.json` | Verðlag og laun á hvern launþega 1995–2024, fyrir inngöngusamanburðinn (mynd 3) |
+| `eurostat_neysla_2024.json` | Magnvísitölur neyslu á mann 2024 (AIC og einkaneysla), fyrir sætisreikninginn |
 | `eurostat_ilc_di03_2024_eur.json` | Miðgildi jafngildra ráðstöfunartekna 2024, evrur |
 | `eurostat_ilc_di03_is_2020.json` | Sama stærð fyrir Ísland 2020, krónur (síðasta mælda gildið) |
-| `eurostat_lc_lci_lev_20260714.json` | Launakostnaður á vinnustund, fryst 14.7.2026 |
 | `eurostat_nama_10_pc_2024.json` | Landsframleiðsla á mann 2024, evrur |
 | `eurostat_demo_pjan_is.json` | Mannfjöldi Íslands |
 | `hagstofa_frett_vintage_2025-04-04_PrrvG.csv` | Bráðabirgðatölur Hagstofunnar um ráðstöfunartekjur heimilageirans, útgáfa 4.4.2025 |
@@ -45,68 +71,79 @@ mynd02_verdlag/
 ## Forritin og keyrsluröð
 
 Python-forritin (þarf Python 3.10 eða nýrri; `openpyxl` fyrir
-sannprófunarforritið og `matplotlib` fyrir aðhvarfsmyndina):
+sannprófunarforritið og `matplotlib` fyrir endurgerð aðhvarfsmyndarinnar):
 
 ```
-python3 forrit/sannreyna_vinnubok.py    # ber vinnubókina saman við frumgögnin
-python3 forrit/adhvarf_naemniprof.py    # grunnmatið og úrtakspróf
-python3 forrit/tafla2_naemniprof.py     # SILC-línur næmniprófstöflunnar
-python3 forrit/tek01001_naemniprof.py   # skattframtalsframreikningurinn
-python3 forrit/vlf_naemniprof.py        # VLF-lína næmniprófstöflunnar
-python3 forrit/utanesb_naemniprof.py    # samanburðurinn við Noreg og Sviss
-python3 forrit/matvara_undirflokkar.py  # verðlag matvöruflokka (mynd 4)
-python3 forrit/launthegar_naemniprof.py # næmnipróf án vinnustunda (laun á launþega)
-python3 forrit/vinnustundir_naemniprof.py # næmnipróf fyrir mælingu vinnustunda
-python3 forrit/innganga_naemniprof.py   # inngöngusamanburðurinn 1995–2024 (mynd 5)
-python3 forrit/gera_mynd_adhvarf.py     # endurgerð aðhvarfsmyndarinnar í Python
+python3 forrit/sannreyna_vinnubok.py      # ber vinnubókina saman við frumgögnin
+python3 forrit/adhvarf_naemniprof.py      # aðalmatið (0,42; +23,8%) og úrtakspróf
+python3 forrit/vinnustundir_naemniprof.py # bil matsins 24–31% (vinnustundir)
+python3 forrit/launthegar_naemniprof.py   # mælikvarðinn án vinnustunda (+20,9%)
+python3 forrit/innganga_naemniprof.py     # Finnland, Svíþjóð og Austurríki 1995–2024
+python3 forrit/neysla_naemniprof.py       # sæti Íslands í neyslu á mann
+python3 forrit/matvara_undirflokkar.py    # verðlag matvöruflokka
+python3 forrit/utanesb_naemniprof.py      # samanburðurinn við Noreg og Sviss
+python3 forrit/tafla2_naemniprof.py       # SILC-línur næmniprófanna
+python3 forrit/tek01001_naemniprof.py     # skattframtalsframreikningurinn
+python3 forrit/vlf_naemniprof.py          # VLF-næmniprófið
+python3 forrit/gera_mynd_adhvarf.py       # endurgerð aðhvarfsmyndarinnar í Python
 ```
 
 Öll forritin eru keyrð úr `mynd02_verdlag/`. Hvert þeirra prentar
-niðurstöður sínar og skrifar CSV-skrá í `nidurstodur/`; forritin bera
-lykiltölur saman við birtu gildin í greininni og stöðvast með villu ef
-eitthvað ber á milli.
+niðurstöður sínar og skrifar CSV-skrá í `nidurstodur/`.
 
-Myndir 1--5 eru teiknaðar í MATLAB (R2024b). Keyrt úr rót pakkans:
+Myndir greinarinnar eru teiknaðar í MATLAB (R2024b). Keyrt úr rót
+pakkans:
 
 ```
-matlab -batch "run('mynd02_verdlag/forrit/gera_mynd02_samisvisir.m')"
-matlab -batch "run('mynd02_verdlag/forrit/gera_mynd_kaupmattur.m')"
-matlab -batch "run('mynd02_verdlag/forrit/gera_mynd3_adhvarf.m')"
-matlab -batch "run('mynd02_verdlag/forrit/gera_mynd4_matvara.m')"
-matlab -batch "run('mynd02_verdlag/forrit/gera_mynd5_innganga.m')"
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd3_adhvarf.m')"      # aðhvarfsmyndin
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd_kaupmattur.m')"    # kaupmáttur vinnustundar
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd5_innganga.m')"     # inngöngumyndin
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd02_samisvisir.m')"  # deiling og verðlag hlið við hlið
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd4_matvara.m')"      # matvöruflokkarnir
 ```
 
-Forritið `gera_mynd02.m` teiknar eldri útgáfu samanburðarmyndarinnar
-(A01 vinstra megin, E011 hægra megin) og er varðveitt til samanburðar.
-Forritið `saekja.py` sótti frumgögnin á sínum tíma og skrifaði
-manifest-skrána; það þarf ekki að keyra, enda eru hráafritin fryst.
+Forritið `gera_mynd02.m` teiknar eldri útgáfu samanburðarmyndarinnar og
+er varðveitt til samanburðar. Forritið `saekja.py` sótti frumgögnin á
+sínum tíma og skrifaði manifest-skrána; það þarf ekki að keyra, enda eru
+hráafritin fryst.
 
 ## Skjalfest frávik og fyrirvarar
 
 - **Ungverjaland.** Tekjutalan sem endurgerir alla birta reiti
   greiningarinnar (um 8.815 evrur) er ályktuð af reitunum sjálfum; sótta
-  Eurostat-gildið í frysta svarinu er 8.488 evrur. Bæði gildin eru varðveitt
-  og merkt í vinnubókinni og í `lysigogn/SAMRAEMING.md`.
-- **TEK01001.** Svar Hagstofunnar geymir tvær miðgildisraðir. Hér er notuð
-  röðin „Miðgildi allra framteljenda“ (Eining 2), eins og greinin lýsir;
-  hin röðin breytir tölunum nær engu.
-- **Tímaviðmið SILC.** `time=2024` í EU-SILC vísar almennt til tekjuárs á
-  undan könnunarári; framreikningur 2020–2024 í þjóðhagsreikningum fellur
-  ekki nákvæmlega að tekjuárum SILC. Sjá `lysigogn/SAMRAEMING.md`.
-- **Beltið á aðhvarfsmyndinni** er fast: metið log-verðlag ±2 staðalvillur
-  leifa. Það er hvorki öryggis- né spábil.
+  Eurostat-gildið í frysta svarinu er 8.488 evrur. Bæði gildin eru
+  varðveitt og merkt í vinnubókinni og í `lysigogn/SAMRAEMING.md`.
+- **TEK01001.** Svar Hagstofunnar geymir tvær miðgildisraðir. Hér er
+  notuð röðin „Miðgildi allra framteljenda" (Eining 2), eins og greinin
+  lýsir; hin röðin breytir tölunum nær engu.
+- **Tímaviðmið SILC.** `time=2024` í EU-SILC vísar almennt til tekjuárs
+  á undan könnunarári; framreikningur 2020–2024 í þjóðhagsreikningum
+  fellur ekki nákvæmlega að tekjuárum SILC. Sjá `lysigogn/SAMRAEMING.md`.
+- **Inngöngusamanburðurinn** er metinn á upprunalegu aðildarríkjunum
+  ellefu, því bresk gögn liggja ekki fyrir í þjóðhagsreikningaröðum
+  Eurostat; tekjustærðin fyrir 1995 er laun á hvern launþega, ekki laun
+  á klukkustund, sem ekki eru mæld svo langt aftur.
+- **Sætisreikningur neyslunnar** er reikningur á kaupmætti óbreyttra
+  útgjalda við lægra verðlag, ekki spá um hegðun.
+- **Beltið á aðhvarfsmyndinni** er fast: metið log-verðlag ±2
+  staðalvillur leifa. Það er hvorki öryggis- né spábil.
 
 ## Viðmiðunarútgáfur greinarinnar
 
 Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
 SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Útgáfan
-`Verdlagsgrein-7.pdf` (27 bls.) hefur hashið
+frá 15. ágúst 2026 (34 bls., með inngöngusamanburðinum og bilinu
+24–31%) hefur hashið
+`c592eff2e889c7272eda7d6ea6ef54a3ce84507106ca0e7258fc62862ebafd69`.
+Eldri útgáfa, `Verdlagsgrein-7.pdf` (27 bls.), hafði hashið
 `a4079c56547a06ce643d01996543c0aacf18163edbe94270832de24720904a23`;
-síðari útgáfur bera annan hash en lykiltölur greinarinnar eru óbreyttar.
+lykiltölur aðalmatsins eru óbreyttar milli útgáfna.
 
 ## Heimildir gagna
 
-Eurostat (`prc_ppp_ind`, `ilc_di03`, `lc_lci_lev`, `nama_10_pc`,
-`demo_pjan`), Hagstofa Íslands (þjóðhagsreikningar, TEK01001) og
-Seðlabanki Íslands (gengisskráning). Um endurnot gagnanna gilda skilmálar
-hverrar stofnunar.
+Eurostat (`prc_ppp_ind`, `ilc_di03`, `lc_lci_lev`, `lc_nnum1_r2`,
+`lfsa_ewhan2`, `nama_10_pc`, `nama_10_gdp`, `nama_10_a10`,
+`nama_10_a10_e`, `demo_pjan`), Hagstofa Íslands (þjóðhagsreikningar,
+TEK01001, vinnumarkaðsrannsókn VIN00941 og VIN00931) og Seðlabanki
+Íslands (gengisskráning). Um endurnot gagnanna gilda skilmálar hverrar
+stofnunar.
