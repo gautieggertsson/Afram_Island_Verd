@@ -155,7 +155,7 @@ SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Fjórða
 útgáfan, frá 16. ágúst 2026 (40 bls., eftir óháða úttekt: körfusamræmt
 neyslumat á mynd 7, framreikningsnæmni, uppfærð ytri gjöld og
 frávikasafn án EFTA-ríkja), hefur hashið
-`dfa79f2aeeb0b41d156351365be624bf8bd5fc2fc5a8bae649ead8a5f9605f98`.
+`419d8df9ee21ffbef6cfafd9728f95806ab30d97d1b49ee2c2169a95cf25c69e`.
 Þriðja útgáfan, fyrr sama dag (39 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
 `579862c4c8a5933273bfc50e55e3fb63a0e82fa1485e876cef0fc4999c7c7556`.
