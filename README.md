@@ -33,9 +33,8 @@ birtu gildin í greininni og stöðvast með villu ef eitthvað ber á milli.
   til 13%) og 134 til 147 eftir tuttugu ár (lækkun 9 til 17%); miðmatið
   er um 146 eftir tíu ár (10% lækkun) og um 139 eftir tuttugu (14%).
 - Frávikasafn viðauka C: 33 ríki 1995 til 2024; helmingunartími frávika
-  6 til 14 ár í breiðu úrtökunum; aðdráttarpunktur Íslands, Noregs og
-  Sviss +14 til +15%; frávik Íslands +24,9% árið 2024 og +15,9% að
-  meðaltali frá 1995.
+  6 til 14 ár í breiðu úrtökunum; frávik Íslands +24,9% árið 2024 og
+  +15,9% að meðaltali frá 1995, án leitni að línunni.
 - Verðlag matvöruflokka 2024: kjöt +72,5%, mjólkurvörur og egg +71,7%,
   fiskur +10,1%.
 - Sæti Íslands í neyslu á mann: 4. sæti nú, efsta sæti félli
@@ -151,11 +150,11 @@ hráafritin fryst.
 ## Viðmiðunarútgáfur greinarinnar
 
 Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
-SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Fjórða
-útgáfan, frá 16. ágúst 2026 (40 bls., eftir óháða úttekt: körfusamræmt
+SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Fimmta
+útgáfan, frá 16. ágúst 2026 (39 bls., eftir óháða úttekt: körfusamræmt
 neyslumat á mynd 7, framreikningsnæmni, uppfærð ytri gjöld og
 frávikasafn án EFTA-ríkja), hefur hashið
-`419d8df9ee21ffbef6cfafd9728f95806ab30d97d1b49ee2c2169a95cf25c69e`.
+`1af783c43e7051c7206451388179b892f3ba412c3b521baa5b5a7407a5d098a6`.
 Þriðja útgáfan, fyrr sama dag (39 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
 `579862c4c8a5933273bfc50e55e3fb63a0e82fa1485e876cef0fc4999c7c7556`.

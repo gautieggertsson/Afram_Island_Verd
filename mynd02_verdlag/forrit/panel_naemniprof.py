@@ -10,14 +10,13 @@ síðan metið villuleiðréttingarsamband,
     d(t+k) - d(t) = alfa + beta * d(t),
 
 fyrir k = 1, 5 og 10 ár, eftir úrtökum (öll ríki; án matsríkjanna
-ellefu; aðildarríki á hverjum tíma; ríki utan ESB; Ísland, Noregur og
-Sviss), með staðalvillum sem leyfa fylgni innan ríkja. Einnig er
+ellefu; aðildarríki á hverjum tíma; ríki utan ESB á tíma t), með
+staðalvillum sem taka tillit til fylgni innan ríkja. Einnig er
 reiknuð hóptaflan (frávik við inngöngu og 2024) og ferill Íslands.
 
 Viðmiðunargildi viðauka C sem forritið sannreynir: helmingunartímabil
-6 til 14 ár í úrtakinu án matsríkjanna; aðdráttarpunktur Íslands,
-Noregs og Sviss +14 til +15%; frávik Íslands 2024 +24,9% og meðaltal
-+15,9% frá 1995.
+6 til 14 ár í breiðu úrtökunum; frávik Íslands 2024 +24,9% og meðaltal
++15,9% frá 1995 án leitni að línunni.
 
 Þarf numpy. Les eingöngu ``hra/eurostat_innganga_1995_2024.json``.
 
@@ -178,8 +177,7 @@ def main() -> None:
     for hvad, heiti in [("oll", "Öll ríki"),
                         ("an11", "Án matsríkjanna ellefu"),
                         ("adilar", "Aðildarríki ESB"),
-                        ("utan", "Ríki utan ESB"),
-                        ("efta", "Ísland, Noregur og Sviss")]:
+                        ("utan", "Ríki utan ESB á tíma t")]:
         for k in (1, 5, 10):
             rod = urtak(k, hvad)
             g = np.array([r[0] for r in rod])
@@ -207,11 +205,8 @@ def main() -> None:
     assert abs(lita[("Öll ríki", 1)][4] - (-0.0834)) < 0.003
     assert abs(lita[("Án matsríkjanna ellefu", 1)][4] - (-0.1008)) < 0.003
     assert abs(lita[("Aðildarríki ESB", 1)][4] - (-0.0336)) < 0.003
-    assert abs(lita[("Ísland, Noregur og Sviss", 1)][4] - (-0.197)) < 0.005
     hl_an11 = [lita[("Án matsríkjanna ellefu", k)][6] for k in (1, 5, 10)]
     assert 6.0 < min(hl_an11) and max(hl_an11) < 14.0, hl_an11
-    mu_efta = [lita[("Ísland, Noregur og Sviss", k)][8] for k in (1, 5, 10)]
-    assert all(0.14 < m < 0.15 for m in mu_efta), mu_efta
 
     # --- Hóptaflan ---
     hopur = []
@@ -260,8 +255,6 @@ def main() -> None:
           + "; ".join(f"{rod[0]} {rod[4]:+.3f}" for rod in ec if rod[1] == 1))
     print(f"Helmingunartímabil án matsríkjanna: "
           f"{min(hl_an11):.1f} til {max(hl_an11):.1f} ár.")
-    print(f"Aðdráttarpunktur Íslands, Noregs og Sviss: "
-          f"{100*min(mu_efta):.1f} til {100*max(mu_efta):.1f}%.")
     print(f"Ísland: 2024 {100*fravik['IS'][2024]:+.1f}%, meðaltal "
           f"{100*d_is.mean():+.1f}%, leitni {100*halli_t:+.2f} prósentustig á ári.")
     print("Ekkert ríki sem gekk inn með stórt jákvætt frávik hélt því.")
