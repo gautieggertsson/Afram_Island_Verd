@@ -24,7 +24,7 @@ birtu gildin í greininni og stöðvast með villu ef eitthvað ber á milli.
 - Endurgerð 28%-tölunnar: 0,72 á kvarða greiningarinnar, ásamt
   næmniprófum á framreikningi teknanna (20 til 22% í stað 28).
 - Inngöngusamanburðurinn: frávik Finnlands, Svíþjóðar og Austurríkis
-  frá metnu sambandi hvert ár 1995 til 2024 (Finnland +18,8% við
+  frá metnu sambandi hvert ár 1995 til 2024 (Finnland +18,7% við
   inngöngu, +9,9% árið 2024; Austurríki við línuna allan tímann);
   leitni myndarinnar er Hodrick-Prescott-sía með lambda = 100.
 - Framreikningurinn (mynd 4): sameiginlegt hjöðnunarferli Finnlands og
@@ -146,9 +146,9 @@ hráafritin fryst.
 
 Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
 SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Þriðja
-útgáfan, frá 16. ágúst 2026 (40 bls., með samantektarsíðu,
+útgáfan, frá 16. ágúst 2026 (39 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
-`fca09f80d51e19e1359e03d42120fb5dc4f51c71f643177ec5cd17129c9f3bb7`.
+`579862c4c8a5933273bfc50e55e3fb63a0e82fa1485e876cef0fc4999c7c7556`.
 Útgáfan frá 15. ágúst 2026 (34 bls., með inngöngusamanburðinum og
 bilinu 24–31%) hafði hashið
 `c592eff2e889c7272eda7d6ea6ef54a3ce84507106ca0e7258fc62862ebafd69`.

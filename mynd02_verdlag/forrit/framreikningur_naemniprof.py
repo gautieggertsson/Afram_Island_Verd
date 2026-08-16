@@ -16,7 +16,7 @@ helmingunartíma á bilinu 6 til 14 ár úr frávikasafni viðauka C (sjá
 ``panel_naemniprof.py``).
 
 Viðmiðunargildi greinarinnar sem forritið sannreynir: c = 6,1%,
-k = 0,092 (helmingunartími 7,6 ár); verðlag eftir 10 ár 141 til 153
+k = 0,091 (helmingunartími 7,6 ár); verðlag eftir 10 ár 141 til 153
 (lækkun 6 til 13%) og eftir 20 ár 134 til 147 (lækkun 9 til 17%).
 
 Les eingöngu ``nidurstodur/innganga_fravik.csv``.
@@ -120,7 +120,7 @@ def main() -> None:
 
     # Viðmiðunargildi greinarinnar.
     assert abs(c - 6.1) < 0.1, c
-    assert abs(k - 0.092) < 0.002, k
+    assert abs(k - 0.091) < 0.001, k
     assert abs(hl - 7.6) < 0.2, hl
 
     k_lag = math.log(2) / HL_LAG
