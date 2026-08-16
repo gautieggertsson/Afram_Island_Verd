@@ -25,7 +25,16 @@ birtu gildin í greininni og stöðvast með villu ef eitthvað ber á milli.
   næmniprófum á framreikningi teknanna (20 til 22% í stað 28).
 - Inngöngusamanburðurinn: frávik Finnlands, Svíþjóðar og Austurríkis
   frá metnu sambandi hvert ár 1995 til 2024 (Finnland +18,8% við
-  inngöngu, +9,9% árið 2024; Austurríki við línuna allan tímann).
+  inngöngu, +9,9% árið 2024; Austurríki við línuna allan tímann);
+  leitni myndarinnar er Hodrick-Prescott-sía með lambda = 100.
+- Framreikningurinn (mynd 4): sameiginlegt hjöðnunarferli Finnlands og
+  Svíþjóðar (jafnvægi 6,1%, helmingunartími 7,6 ár) heimfært á stöðu
+  Íslands; verðlag færi úr 161,7 í 141 til 153 eftir tíu ár (lækkun 6
+  til 13%) og 134 til 147 eftir tuttugu ár (lækkun 9 til 17%).
+- Frávikasafn viðauka C: 33 ríki 1995 til 2024; helmingunartími frávika
+  6 til 14 ár í breiðu úrtökunum; aðdráttarpunktur Íslands, Noregs og
+  Sviss +14 til +15%; frávik Íslands +24,9% árið 2024 og +15,9% að
+  meðaltali frá 1995.
 - Verðlag matvöruflokka 2024: kjöt +72,5%, mjólkurvörur og egg +71,7%,
   fiskur +10,1%.
 - Sæti Íslands í neyslu á mann: 4. sæti nú, efsta sæti félli
@@ -71,7 +80,8 @@ mynd02_verdlag/
 ## Forritin og keyrsluröð
 
 Python-forritin (þarf Python 3.10 eða nýrri; `openpyxl` fyrir
-sannprófunarforritið og `matplotlib` fyrir endurgerð aðhvarfsmyndarinnar):
+sannprófunarforritið, `matplotlib` fyrir endurgerð aðhvarfsmyndarinnar
+og `numpy` fyrir frávikasafnsforritið):
 
 ```
 python3 forrit/sannreyna_vinnubok.py      # ber vinnubókina saman við frumgögnin
@@ -79,6 +89,8 @@ python3 forrit/adhvarf_naemniprof.py      # aðalmatið (0,42; +23,8%) og úrtak
 python3 forrit/vinnustundir_naemniprof.py # bil matsins 24–31% (vinnustundir)
 python3 forrit/launthegar_naemniprof.py   # mælikvarðinn án vinnustunda (+20,9%)
 python3 forrit/innganga_naemniprof.py     # Finnland, Svíþjóð og Austurríki 1995–2024
+python3 forrit/framreikningur_naemniprof.py # framreikningurinn fyrir Ísland (mynd 4)
+python3 forrit/panel_naemniprof.py        # frávikasafn viðauka C (þarf numpy)
 python3 forrit/neysla_naemniprof.py       # sæti Íslands í neyslu á mann
 python3 forrit/matvara_undirflokkar.py    # verðlag matvöruflokka
 python3 forrit/utanesb_naemniprof.py      # samanburðurinn við Noreg og Sviss
@@ -98,6 +110,7 @@ pakkans:
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd3_adhvarf.m')"      # aðhvarfsmyndin
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd_kaupmattur.m')"    # kaupmáttur vinnustundar
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd5_innganga.m')"     # inngöngumyndin
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd6_spa.m')"          # framreikningsmyndin
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd02_samisvisir.m')"  # deiling og verðlag hlið við hlið
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd4_matvara.m')"      # matvöruflokkarnir
 ```
@@ -131,9 +144,12 @@ hráafritin fryst.
 ## Viðmiðunarútgáfur greinarinnar
 
 Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
-SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Útgáfan
-frá 15. ágúst 2026 (34 bls., með inngöngusamanburðinum og bilinu
-24–31%) hefur hashið
+SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Þriðja
+útgáfan, frá 16. ágúst 2026 (40 bls., með samantektarsíðu,
+framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
+`211fc11a932a4c3a6f49545b97557b26e6e8f98c4cb6f3b2c8620e26da370aec`.
+Útgáfan frá 15. ágúst 2026 (34 bls., með inngöngusamanburðinum og
+bilinu 24–31%) hafði hashið
 `c592eff2e889c7272eda7d6ea6ef54a3ce84507106ca0e7258fc62862ebafd69`.
 Eldri útgáfa, `Verdlagsgrein-7.pdf` (27 bls.), hafði hashið
 `a4079c56547a06ce643d01996543c0aacf18163edbe94270832de24720904a23`;
