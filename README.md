@@ -39,9 +39,8 @@ birtu gildin í greininni og stöðvast með villu ef eitthvað ber á milli.
   fiskur +10,1%.
 - Sæti Íslands í neyslu á mann: 4. sæti nú, efsta sæti félli
   hlutfallslegt verðlag að spágildinu.
-- Samanburðurinn við Noreg og Sviss: meðalfrávik allra ára
-  launakönnunarinnar (Noregur +2,2%, Sviss +16,0%; Ísland +17 til +29%
-  öll ár frá 2016).
+- Frávik Íslands öll ár launakönnunarinnar: +17 til +29% hvert einasta
+  ár frá 2016; niðurstaðan veltur ekki á gengisstöðu eins árs.
 
 ## Uppbygging
 
@@ -65,7 +64,7 @@ bætum, SHA-256-hashi, lýsingu og heimild eða fyrirspurnarlýsingu.
 |---|---|
 | `eurostat_prc_ppp_ind_2024.json` | Verðlagsvísitölur 2024 (A01, E011 og undirflokkar), ESB = 100 |
 | `eurostat_prc_ppp_ind_matvara_2024.json` | Verðlagsvísitölur matvöruflokka 2024 (kjöt, mjólkurvörur, fiskur o.fl.) |
-| `eurostat_utanesb_adhvarf.json` | Verðlag og launakostnaður öll ár launakönnunarinnar 2012–2024, fyrir aðhvarfið og samanburðinn við Noreg og Sviss |
+| `eurostat_utanesb_adhvarf.json` | Verðlag og launakostnaður öll ár launakönnunarinnar 2012–2024, fyrir aðhvarfið og frávik Íslands öll ár (skráin geymir einnig gögn um Noreg og Sviss fyrir aukagreiningu sem birtist ekki í greininni) |
 | `eurostat_lc_lci_lev_20260714.json` | Launakostnaður á vinnustund, fryst 14.7.2026 |
 | `eurostat_laun_a_launthega_2024.json` | Heildarlaunakostnaður (D1) og fjöldi launþega 2024, fyrir mælikvarðann án vinnustunda |
 | `eurostat_vinnustundir_2024.json` | Vinnuvika (LFS), vinnuár þjóðhagsreikninga, stundir launakönnunar Eurostat og vinnumarkaðsrannsóknartöflur Hagstofunnar (VIN00941, VIN00931), fyrir næmnipróf vinnustunda |
@@ -97,7 +96,7 @@ python3 forrit/framreikningur_naemniprof.py # framreikningurinn fyrir Ísland (m
 python3 forrit/panel_naemniprof.py        # frávikasafn viðauka C (þarf numpy)
 python3 forrit/neysla_naemniprof.py       # sæti Íslands í neyslu á mann
 python3 forrit/matvara_undirflokkar.py    # verðlag matvöruflokka
-python3 forrit/utanesb_naemniprof.py      # samanburðurinn við Noreg og Sviss
+python3 forrit/utanesb_naemniprof.py      # frávik Íslands öll ár (NO/CH-hlutinn er aukagreining utan greinar)
 python3 forrit/tafla2_naemniprof.py       # SILC-línur næmniprófanna
 python3 forrit/tek01001_naemniprof.py     # skattframtalsframreikningurinn
 python3 forrit/vlf_naemniprof.py          # VLF-næmniprófið
@@ -118,7 +117,7 @@ matlab -batch "run('mynd02_verdlag/forrit/gera_mynd5_innganga.m')"     # inngön
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd6_spa.m')"          # framreikningsmyndin
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd02_samisvisir.m')"  # deiling og verðlag hlið við hlið
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd4_matvara.m')"      # matvöruflokkarnir
-matlab -batch "run('mynd02_verdlag/forrit/gera_mynd7_neysla.m')"       # neyslumyndin
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd7_neysla.m')"     # neyslumyndin (mynd 6 í grein; skráarheiti sögulegt)
 ```
 
 Forritið `gera_mynd02.m` teiknar eldri útgáfu samanburðarmyndarinnar og
@@ -154,7 +153,7 @@ SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Fimmta
 útgáfan, frá 16. ágúst 2026 (39 bls., eftir óháða úttekt: körfusamræmt
 neyslumat á mynd 7, framreikningsnæmni, uppfærð ytri gjöld og
 frávikasafn án EFTA-ríkja), hefur hashið
-`1af783c43e7051c7206451388179b892f3ba412c3b521baa5b5a7407a5d098a6`.
+`7d56e5bcb2c969229ec6a109f0c8f7fe753cc40c7e154615f878f05b595d016f`.
 Þriðja útgáfan, fyrr sama dag (39 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
 `579862c4c8a5933273bfc50e55e3fb63a0e82fa1485e876cef0fc4999c7c7556`.
