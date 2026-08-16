@@ -30,7 +30,8 @@ birtu gildin í greininni og stöðvast með villu ef eitthvað ber á milli.
 - Framreikningurinn (mynd 4): sameiginlegt hjöðnunarferli Finnlands og
   Svíþjóðar (jafnvægi 6,1%, helmingunartími 7,6 ár) heimfært á stöðu
   Íslands; verðlag færi úr 161,7 í 141 til 153 eftir tíu ár (lækkun 6
-  til 13%) og 134 til 147 eftir tuttugu ár (lækkun 9 til 17%).
+  til 13%) og 134 til 147 eftir tuttugu ár (lækkun 9 til 17%); miðmatið
+  er um 146 eftir tíu ár (10% lækkun) og um 139 eftir tuttugu (14%).
 - Frávikasafn viðauka C: 33 ríki 1995 til 2024; helmingunartími frávika
   6 til 14 ár í breiðu úrtökunum; aðdráttarpunktur Íslands, Noregs og
   Sviss +14 til +15%; frávik Íslands +24,9% árið 2024 og +15,9% að
@@ -147,7 +148,7 @@ Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
 SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Þriðja
 útgáfan, frá 16. ágúst 2026 (40 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
-`211fc11a932a4c3a6f49545b97557b26e6e8f98c4cb6f3b2c8620e26da370aec`.
+`374478b7b5bf9f3d84ef58af44c0406be815d6dfe4474cff5b2ae2081d6b5d4f`.
 Útgáfan frá 15. ágúst 2026 (34 bls., með inngöngusamanburðinum og
 bilinu 24–31%) hafði hashið
 `c592eff2e889c7272eda7d6ea6ef54a3ce84507106ca0e7258fc62862ebafd69`.

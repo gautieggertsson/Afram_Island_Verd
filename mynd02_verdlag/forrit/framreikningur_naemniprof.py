@@ -150,6 +150,13 @@ def main() -> None:
         assert round(100 * (1 - r["ytra_ha"] / P_IS)) == f_lag, ar
         assert round(100 * (1 - r["ytra_lag"] / P_IS)) == f_ha, ar
 
+    # Miðmatið sem samantekt greinarinnar vitnar í: um 146 eftir tíu ár
+    # (10% lækkun) og um 139 eftir tuttugu (14% lækkun).
+    assert round(rodir[10]["mid"]) == 146, rodir[10]["mid"]
+    assert round(rodir[20]["mid"]) == 139, rodir[20]["mid"]
+    assert round(100 * (1 - rodir[10]["mid"] / P_IS)) == 10
+    assert round(100 * (1 - rodir[20]["mid"] / P_IS)) == 14
+
     OUT.mkdir(exist_ok=True)
     with (OUT / "framreikningur_island.csv").open("w", newline="") as f:
         w = csv.writer(f, delimiter=";")
