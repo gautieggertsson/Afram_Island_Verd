@@ -148,7 +148,7 @@ Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
 SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Þriðja
 útgáfan, frá 16. ágúst 2026 (40 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
-`81d81be73229afdfb4f19691fb07a9463f0f38a0906c80e24c2ce1fbea044706`.
+`fca09f80d51e19e1359e03d42120fb5dc4f51c71f643177ec5cd17129c9f3bb7`.
 Útgáfan frá 15. ágúst 2026 (34 bls., með inngöngusamanburðinum og
 bilinu 24–31%) hafði hashið
 `c592eff2e889c7272eda7d6ea6ef54a3ce84507106ca0e7258fc62862ebafd69`.
