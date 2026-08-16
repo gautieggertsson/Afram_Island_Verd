@@ -8,8 +8,8 @@ meðaltali ESB, sem sett er fram á síðu 20 í greiningu Kontext ehf. fyrir
 RSE og Áfram Ísland frá júlí 2026.
 
 Pakkinn geymir frosin hráafrit allra gagna sem greinin notar, forritin
-sem endurgera hverja birta tölu og hverja mynd, og niðurstöðuskrárnar
-sem út koma. Ekkert forrit sækir gögn af netinu; allt les úr frystu
+sem endurgera kjarnaniðurstöður greinarinnar (sjá `lysigogn/` um
+umfang), og niðurstöðuskrárnar sem út koma. Ekkert forrit sækir gögn af netinu; allt les úr frystu
 skránum í `mynd02_verdlag/hra/`. Hvert forrit ber lykiltölur saman við
 birtu gildin í greininni og stöðvast með villu ef eitthvað ber á milli.
 
@@ -59,6 +59,9 @@ mynd02_verdlag/
 
 ## Frumgögn í `hra/`
 
+Öll 17 hráafritin eru skráð í `lysigogn/manifest.json` með stærð í
+bætum, SHA-256-hashi, lýsingu og heimild eða fyrirspurnarlýsingu.
+
 | Skrá | Efni |
 |---|---|
 | `eurostat_prc_ppp_ind_2024.json` | Verðlagsvísitölur 2024 (A01, E011 og undirflokkar), ESB = 100 |
@@ -80,9 +83,10 @@ mynd02_verdlag/
 
 ## Forritin og keyrsluröð
 
-Python-forritin (þarf Python 3.10 eða nýrri; `openpyxl` fyrir
-sannprófunarforritið, `matplotlib` fyrir endurgerð aðhvarfsmyndarinnar
-og `numpy` fyrir frávikasafnsforritið):
+Python-forritin þurfa Python 3.10 eða nýrri ásamt pökkunum `openpyxl`
+(les vinnubókina í sannprófunarforritinu), `numpy` (frávikasafns- og
+framreikningsforritin) og `matplotlib` (endurgerð aðhvarfsmyndarinnar).
+Myndir greinarinnar eru teiknaðar í MATLAB R2024b. Keyrsluröðin:
 
 ```
 python3 forrit/sannreyna_vinnubok.py      # ber vinnubókina saman við frumgögnin
@@ -98,6 +102,7 @@ python3 forrit/utanesb_naemniprof.py      # samanburðurinn við Noreg og Sviss
 python3 forrit/tafla2_naemniprof.py       # SILC-línur næmniprófanna
 python3 forrit/tek01001_naemniprof.py     # skattframtalsframreikningurinn
 python3 forrit/vlf_naemniprof.py          # VLF-næmniprófið
+python3 forrit/kaupmattur_naemniprof.py   # inntak kaupmáttarmyndarinnar (53,2 -> 32,9)
 python3 forrit/gera_mynd_adhvarf.py       # endurgerð aðhvarfsmyndarinnar í Python
 ```
 
@@ -114,6 +119,7 @@ matlab -batch "run('mynd02_verdlag/forrit/gera_mynd5_innganga.m')"     # inngön
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd6_spa.m')"          # framreikningsmyndin
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd02_samisvisir.m')"  # deiling og verðlag hlið við hlið
 matlab -batch "run('mynd02_verdlag/forrit/gera_mynd4_matvara.m')"      # matvöruflokkarnir
+matlab -batch "run('mynd02_verdlag/forrit/gera_mynd7_neysla.m')"       # neyslumyndin
 ```
 
 Forritið `gera_mynd02.m` teiknar eldri útgáfu samanburðarmyndarinnar og
@@ -145,8 +151,12 @@ hráafritin fryst.
 ## Viðmiðunarútgáfur greinarinnar
 
 Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
-SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Þriðja
-útgáfan, frá 16. ágúst 2026 (39 bls., með samantektarsíðu,
+SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Fjórða
+útgáfan, frá 16. ágúst 2026 (40 bls., eftir óháða úttekt: körfusamræmt
+neyslumat á mynd 7, framreikningsnæmni, uppfærð ytri gjöld og
+frávikasafn án EFTA-ríkja), hefur hashið
+`dfa79f2aeeb0b41d156351365be624bf8bd5fc2fc5a8bae649ead8a5f9605f98`.
+Þriðja útgáfan, fyrr sama dag (39 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
 `579862c4c8a5933273bfc50e55e3fb63a0e82fa1485e876cef0fc4999c7c7556`.
 Útgáfan frá 15. ágúst 2026 (34 bls., með inngöngusamanburðinum og

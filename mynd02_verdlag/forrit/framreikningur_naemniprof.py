@@ -19,6 +19,11 @@ Viðmiðunargildi greinarinnar sem forritið sannreynir: c = 6,1%,
 k = 0,091 (helmingunartími 7,6 ár); verðlag eftir 10 ár 141 til 153
 (lækkun 6 til 13%) og eftir 20 ár 134 til 147 (lækkun 9 til 17%).
 
+Næmnipróf í lokin: sama ferli endurmetið með upphafsstöðu hvors ríkis
+festri við mælda frávikið 1995 (aðeins c og k frjáls). Hjöðnunin
+mælist þá hægari, helmingunartími um 11,8 ár, og miðmat lækkunarinnar
+verður 8% eftir tíu ár og 12% eftir tuttugu í stað 10% og 14%.
+
 Les eingöngu ``nidurstodur/innganga_fravik.csv``.
 
 Keyrsla:  python3 forrit/framreikningur_naemniprof.py
@@ -104,6 +109,37 @@ def sameiginlegt_ferli(fravik: dict[str, list[float]]) -> tuple[float, float]:
     return c, k
 
 
+def fast_upphaf_ferli(fravik: dict[str, list[float]]) -> tuple[float, float]:
+    """Metur c og k með upphafsstöðu hvors ríkis festri við mælda
+    frávikið 1995: y_gt = c + (d_g0 - c) * exp(-k t).
+
+    Fyrir gefið k er líkanið línulegt í c,
+    y_gt - d_g0 exp(-k t) = c (1 - exp(-k t)), og c leyst með minnstu
+    kvaðrötum; k er fundið með sömu þéttu leit og í grunnmatinu.
+    """
+    t = list(range(30))
+    best = None
+    k = 0.0005
+    while k <= 0.5:
+        num = 0.0
+        den = 0.0
+        for g in ("FI", "SE"):
+            d0 = fravik[g][0]
+            for i in t:
+                e = math.exp(-k * i)
+                num += (fravik[g][i] - d0 * e) * (1 - e)
+                den += (1 - e) ** 2
+        c = num / den
+        sse = sum((fravik[g][i]
+                   - (c + (fravik[g][0] - c) * math.exp(-k * i))) ** 2
+                  for g in ("FI", "SE") for i in t)
+        if best is None or sse < best[0]:
+            best = (sse, k, c)
+        k += 0.0005
+    _, k, c = best
+    return c, k
+
+
 def ferill(d0: float, c: float, k: float, t: float) -> float:
     return c + (d0 - c) * math.exp(-k * t)
 
@@ -167,8 +203,22 @@ def main() -> None:
                                    ("ytra_lag", "innra_lag", "mid",
                                     "innra_ha", "ytra_ha")])
 
+    # Næmnipróf: upphafsstaða hvors ríkis fest við mælda frávikið 1995.
+    c_f, k_f = fast_upphaf_ferli(fravik)
+    hl_f = math.log(2) / k_f
+    assert abs(hl_f - 11.8) < 0.3, hl_f
+    mid_f = {t: (stig(D0_LAG, c_f, k_f, t) + stig(D0_HA, c_f, k_f, t)) / 2
+             for t in (10, 20)}
+    laekkun_f = {t: round(100 * (1 - mid_f[t] / P_IS)) for t in (10, 20)}
+    assert laekkun_f[10] == 8, mid_f[10]
+    assert laekkun_f[20] == 12, mid_f[20]
+
     print(f"Sameiginlegt ferli FI+SE: c = {c:.2f}%, k = {k:.4f}, "
           f"helmingunartími {hl:.1f} ár.")
+    print(f"Föst upphafsstaða 1995: c = {c_f:.2f}%, k = {k_f:.4f}, "
+          f"helmingunartími {hl_f:.1f} ár; miðmat lækkunar "
+          f"{laekkun_f[10]}% eftir 10 ár og {laekkun_f[20]}% eftir 20 "
+          f"(í stað 10% og 14%).")
     print(f"{'ár':>4s}{'verðlag':>16s}{'lækkun':>16s}")
     for ar in MERKI_AR:
         r = rodir[ar]

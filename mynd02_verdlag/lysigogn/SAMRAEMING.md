@@ -153,6 +153,19 @@ aðhvarfsspár Íslands 140,2 (E011, frávik +15,3%, 1,79 staðalvillur leifa)
 og 150,2 (A01, frávik +15,0%, 1,86 staðalvillur). Úttak í
 `nidurstodur/tek01001_naemniprof.csv`.
 
+## Eldri úttaksskrár (viðbót 16. ágúst 2026)
+
+Skráin `nidurstodur/kaupmattur_vinnustundar.csv`, inntak kaupmáttarmyndarinnar,
+er nú endurgerð úr frystu hráskránum með `forrit/kaupmattur_naemniprof.py`.
+Eftirfarandi sex skrár eru hins vegar varðveittar frá fyrri vinnslustigum:
+
+- `nidurstodur/is_framreikningur.csv`: eldri úttaksskrá, ekki endurgerð af núverandi keyrsluröð.
+- `nidurstodur/mynd02_vinstri.csv`: eldri úttaksskrá, ekki endurgerð af núverandi keyrsluröð.
+- `nidurstodur/mynd02_haegri.csv`: eldri úttaksskrá, ekki endurgerð af núverandi keyrsluröð.
+- `nidurstodur/mynd02_haegri_A01_naemniprofun.csv`: eldri úttaksskrá, ekki endurgerð af núverandi keyrsluröð.
+- `nidurstodur/samanburdur_vid_kontext.csv`: eldri úttaksskrá, ekki endurgerð af núverandi keyrsluröð.
+- `nidurstodur/vinnubok_formulueftirlit.ndjson`: eldri úttaksskrá (formúlueftirlit vinnubókarinnar, 90 færslur af 114), ekki endurgerð af núverandi keyrsluröð.
+
 ## Róbustnesspróf grunnmatsins (viðbót 10. ágúst 2026)
 
 Forritið `forrit/adhvarf_naemniprof.py` endurgerir grunnmat verðlagsgreinarinnar

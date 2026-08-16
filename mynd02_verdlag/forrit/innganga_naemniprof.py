@@ -107,6 +107,35 @@ def hp_sia(rod: list[float], lam: float = LAMBDA_HP) -> list[float]:
     return tau
 
 
+def lowess(rod: list[float], hlutfall: float = 0.55) -> list[float]:
+    """Staðbundin línuleg aðhvarfssléttun (LOWESS) með þríteningsvogum.
+
+    Notuð í næmniprófi neðanmálsgreinar greinarinnar um val sléttunar:
+    endapunktar hennar mega ekki víkja meira en hálfu stigi frá
+    HP-leitninni.
+    """
+    n = len(rod)
+    gluggi = max(3, int(round(hlutfall * n)))
+    ut = []
+    for i in range(n):
+        fjarl = sorted(range(n), key=lambda j: abs(j - i))[:gluggi]
+        h = max(abs(j - i) for j in fjarl) or 1
+        vigt = {j: (1 - (abs(j - i) / h) ** 3) ** 3 for j in fjarl}
+        sw = sum(vigt.values())
+        sx = sum(vigt[j] * j for j in fjarl)
+        sy = sum(vigt[j] * rod[j] for j in fjarl)
+        sxx = sum(vigt[j] * j * j for j in fjarl)
+        sxy = sum(vigt[j] * j * rod[j] for j in fjarl)
+        nefnari = sw * sxx - sx * sx
+        if abs(nefnari) < 1e-12:
+            ut.append(sy / sw)
+            continue
+        b = (sw * sxy - sx * sy) / nefnari
+        a = (sy - b * sx) / sw
+        ut.append(a + b * i)
+    return ut
+
+
 def main() -> None:
     fryst = json.loads((RAW / "eurostat_innganga_1995_2024.json").read_text())
     pli = gildi(fryst["pli_e011"])
@@ -150,6 +179,13 @@ def main() -> None:
     assert abs(100 * hp["SE"][0] - 20.5) < 0.2, hp["SE"][0]
     assert abs(100 * hp["SE"][-1] - 4.6) < 0.2, hp["SE"][-1]
     assert abs(100 * hp["AT"][-1] - (-5.3)) < 0.2, hp["AT"][-1]
+
+    # Næmnipróf sléttunarvalsins: LOWESS-endapunktar innan hálfs stigs
+    # frá HP-leitninni (sbr. neðanmálsgrein greinarinnar).
+    for g in NY1995:
+        lw = lowess(fravik[g])
+        assert abs(100 * (lw[0] - hp[g][0])) < 0.5, (g, lw[0], hp[g][0])
+        assert abs(100 * (lw[-1] - hp[g][-1])) < 0.5, (g, lw[-1], hp[g][-1])
 
     OUT.mkdir(exist_ok=True)
     with (OUT / "innganga_fravik.csv").open("w", newline="") as f:

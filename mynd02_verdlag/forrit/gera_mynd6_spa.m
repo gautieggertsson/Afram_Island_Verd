@@ -71,8 +71,14 @@ for h = [5 10 15 20 25]
     plot(ax, [h h], [lo hi], '-', 'Color', [RED 0.6], 'LineWidth', 0.9);
     text(ax, h, hi + 0.8, sprintf('%.0f-%.0f', lo, hi), 'Color', RED, ...
         'FontSize', 8, 'HorizontalAlignment', 'center');
-    text(ax, h, lo - 1.0, sprintf('%s%.0f%% til %s%.0f%%', ...
-        char(8722), fall_lag, char(8722), fall_ha), 'Color', RED, ...
+    % ASCII-texti (bandstrik, ekki U+2212, sem PDF-leturgerðin
+    % skilar sem '#'); orðið 'lækkun' aðeins við fyrsta merkið.
+    if h == 5
+        fallmerki = sprintf('lækkun %.0f-%.0f%%', fall_lag, fall_ha);
+    else
+        fallmerki = sprintf('%.0f-%.0f%%', fall_lag, fall_ha);
+    end
+    text(ax, h, lo - 1.0, fallmerki, 'Color', RED, ...
         'FontSize', 8, 'FontAngle', 'italic', ...
         'HorizontalAlignment', 'center', 'VerticalAlignment', 'top');
 end

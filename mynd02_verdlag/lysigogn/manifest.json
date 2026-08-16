@@ -290,6 +290,111 @@
       "last_verified_at_utc": "2026-07-20T03:49:15+00:00",
       "sha256": "23d8132ac5dcb66c3ab35d7b2822c49da88f364386ec85b2d99be6c60abdddd7",
       "bytes": 25388
+    },
+    {
+      "file": "hra/eurostat_lc_lci_lev_20260714.json",
+      "source": "Eurostat",
+      "dataset": "lc_lci_lev",
+      "lysing": "Launakostnaður á vinnustund 2024 og 2025 í evrum (lcstruct=D1_D4_MD5, atvinnugreinar B-S án O, unit=EUR). Handunnið safnafrit {land: {ár: gildi}}, ekki óbreytt API-svar; sömu gildi og í gagnavafra Eurostat 14.7.2026.",
+      "fyrirspurn": "lc_lci_lev: freq=A, lcstruct=D1_D4_MD5, nace_r2=B-S_X_O, unit=EUR, time=2024 og 2025, öll ESB-ríki auk EU27_2020, EA-samtala, IS, NO og RS",
+      "retrieved_at_utc": "2026-07-14 (dagsetning í skráarheiti; klukkustund óskráð)",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "10aef619923510c9fdc58a4b890f23b78373e2e554afc954440751a851e2776a",
+      "bytes": 1195
+    },
+    {
+      "file": "hra/hagstofa_tek01001_20260714.json",
+      "source": "Hagstofa Íslands",
+      "dataset": "TEK01001",
+      "method": "POST",
+      "url": "https://px.hagstofa.is/pxis/api/v1/is/Samfelag/launogtekjur/3_tekjur/1_tekjur_skattframtol/TEK01001.px",
+      "lysing": "Miðgildi ráðstöfunartekna af skattframtölum: heildartekjur að frádregnum sköttum og greiðslum í lífeyrissjóð (Tekjur og skattar=5), báðar miðgildisraðir (Eining=2 og 3), bæði kyn, allir aldurshópar, ár 1990-2024. Fryst 14.7.2026; notað í forrit/tek01001_naemniprof.py.",
+      "fyrirspurn": "px-API: Tekjur og skattar=5, Eining=2 og 3, Kyn=0, Aldur=0, Ár=1990-2024, svarform json; slóð staðfest í töfluskrá px-þjónsins 16.8.2026, ekki fryst með svarinu",
+      "retrieved_at_utc": "2026-07-14 (dagsetning í skráarheiti; klukkustund óskráð)",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "4365289469cc8f085000be1f98b62cab4a67d985c1b75df7008883ce3770fbcd",
+      "bytes": 4428
+    },
+    {
+      "file": "hra/eurostat_nama_10_pc_2024.json",
+      "source": "Eurostat",
+      "dataset": "nama_10_pc",
+      "method": "GET",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_pc?format=JSON&lang=EN&freq=A&unit=CP_EUR_HAB&na_item=B1GQ&geo=BE&geo=BG&geo=CZ&geo=DK&geo=DE&geo=EE&geo=IE&geo=EL&geo=ES&geo=FR&geo=HR&geo=IT&geo=CY&geo=LV&geo=LT&geo=LU&geo=HU&geo=MT&geo=NL&geo=AT&geo=PL&geo=PT&geo=RO&geo=SI&geo=SK&geo=FI&geo=SE&geo=IS&time=2024",
+      "lysing": "Landsframleiðsla á mann 2024 í evrum (B1GQ, CP_EUR_HAB), ESB-ríkin 27 og Ísland. Óbreytt JSON-stat-svar; slóðin er endurgerð úr víddum frysta svarsins. Notað í forrit/vlf_naemniprof.py.",
+      "response_updated": "2026-07-22T23:00:00+0200",
+      "retrieved_at_utc": "óskráð; fryst fyrir 14.8.2026",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "62eefc929cda41b9a5243644e9dcb63bc831c648f44979794e7057f1bb8fd27c",
+      "bytes": 3713
+    },
+    {
+      "file": "hra/eurostat_prc_ppp_ind_matvara_2024.json",
+      "source": "Eurostat",
+      "dataset": "prc_ppp_ind",
+      "method": "GET",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_ppp_ind?format=JSON&lang=EN&freq=A&na_item=PLI_EU27_2020&ppp_cat=A0101&ppp_cat=A01010101&ppp_cat=A01010102&ppp_cat=A01010103&ppp_cat=A01010104&ppp_cat=A01010105&ppp_cat=A01010106&geo=IS&time=2024",
+      "lysing": "Verðlagsvísitölur matvöruflokka Íslands 2024 (PLI_EU27_2020): A0101 og undirflokkarnir sex (brauð og kornvörur, kjöt, fiskur, mjólkurvörur og egg, olíur og feiti, ávextir og grænmeti). Óbreytt JSON-stat-svar; slóðin er endurgerð úr víddum frysta svarsins. Notað í forrit/matvara_undirflokkar.py.",
+      "response_updated": "2025-07-10T11:00:00+0200",
+      "retrieved_at_utc": "óskráð; fryst fyrir 14.8.2026",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "922af7497b5cfd3ef9d830e830a8fcf74a45a4e9d6b0acf6a31d5bf0a66dd7e9",
+      "bytes": 3111
+    },
+    {
+      "file": "hra/eurostat_laun_a_launthega_2024.json",
+      "source": "Eurostat",
+      "dataset": "nama_10_gdp, nama_10_a10_e",
+      "lysing": "Safnafrit tveggja JSON-stat-svara með eigin lysing-reit: launakostnaður í heild (D1, nama_10_gdp, CP_MEUR, 2024) og fjöldi launþega (SAL_DC, nama_10_a10_e, THS_PER, NACE alls, 2024). Notað í forrit/launthegar_naemniprof.py: launakostnaður á hvern launþega, mælikvarðinn án vinnustunda.",
+      "fyrirspurn": "d1_cp_meur: nama_10_gdp, freq=A, unit=CP_MEUR, na_item=D1, time=2024; launthegar_ths: nama_10_a10_e, freq=A, unit=THS_PER, nace_r2=TOTAL, na_item=SAL_DC, time=2024",
+      "response_updated": "2026-08-14T11:00:00+0200 (D1); 2026-07-15T11:00:00+0200 (launþegar)",
+      "retrieved_at_utc": "2026-08-14 (skv. lysing-reit skrárinnar)",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "ad5aecc4e12526340cfad0e01a697fbf803446a7379499c1fbd3f623a173a7cd",
+      "bytes": 11274
+    },
+    {
+      "file": "hra/eurostat_vinnustundir_2024.json",
+      "source": "Eurostat og Hagstofa Íslands",
+      "dataset": "lfsa_ewhan2, nama_10_a10_e, lc_nnum1_r2, VIN00941, VIN00931",
+      "lysing": "Safnafrit fyrir næmnipróf vinnustunda, með eigin lysing-reit: vinnuvika launþega 20-64 ára 2024 (lfsa_ewhan2), vinnustundir og fjöldi launþega í þjóðhagsreikningum 2024 og IS 2020 (nama_10_a10_e, SAL_DC), unnar og greiddar stundir og fjöldi starfsfólks í fullu starfi í launakönnun Eurostat 2020 (lc_nnum1_r2, GE10, B-S án O) og vinnumarkaðsrannsókn Hagstofunnar (VIN00941, VIN00931). Notað í forrit/vinnustundir_naemniprof.py: bil matsins 24-31%.",
+      "retrieved_at_utc": "2026-08-14 (skv. lysing-reit skrárinnar)",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "24fbf59bb483de6d83516e1ebf52d74435e4e191864161a01cdec9b7cc9cb474",
+      "bytes": 45975
+    },
+    {
+      "file": "hra/eurostat_utanesb_adhvarf.json",
+      "source": "Eurostat og svissneska hagstofan (BFS)",
+      "dataset": "prc_ppp_ind, lc_lci_lev",
+      "lysing": "Safnafrit fyrir samanburð IS, NO og CH við ESB-27-aðhvarfslínuna öll ár launakönnunarinnar (2012, 2016, 2020-2024), með eigin lysing-reit: verðlag (prc_ppp_ind, PLI_EU27_2020, E011) og launakostnaður á vinnustund (lc_lci_lev, D1_D4_MD5, B-S_X_O, EUR). Launakostnaður Sviss 2024 er reiknaður úr BFS-gögnum (63,62 CHF/klst 2020, launavísitala 104,2, gengi 0,9526 CHF/EUR) = 69,59 EUR; BFS-frumskrárnar eru ekki frystar sérstaklega. Notað í forrit/utanesb_naemniprof.py.",
+      "retrieved_at_utc": "2026-08-14 (skv. lysing-reit skrárinnar)",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "66e6285c9e1a15a9d20d260b5855504ab4ecf5fe6545ce7da5ab5ca03cb9748e",
+      "bytes": 11598
+    },
+    {
+      "file": "hra/eurostat_innganga_1995_2024.json",
+      "source": "Eurostat",
+      "dataset": "prc_ppp_ind, nama_10_a10, nama_10_a10_e",
+      "lysing": "Safnafrit þriggja JSON-stat-svara fyrir inngöngusamanburðinn (mynd 3), með eigin lysing-reit: verðlagsvísitala E011 (prc_ppp_ind, PLI_EU27_2020), heildarlaunakostnaður (D1, nama_10_a10, CP_MEUR) og fjöldi launþega (SAL_DC, nama_10_a10_e, THS_PER), öll ár 1995-2024. Notað í forrit/innganga_naemniprof.py og forrit/panel_naemniprof.py.",
+      "response_updated": "2025-07-10T11:00:00+0200 (verðlag); 2026-08-14T11:00:00+0200 (D1); 2026-07-15T11:00:00+0200 (launþegar)",
+      "retrieved_at_utc": "2026-08-15 (skv. lysing-reit skrárinnar)",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "da9bc76439998e5153effd5d2572a312d5ec175266def23cbb60b845a86cbb47",
+      "bytes": 80633
+    },
+    {
+      "file": "hra/eurostat_neysla_2024.json",
+      "source": "Eurostat",
+      "dataset": "prc_ppp_ind",
+      "lysing": "Safnafrit með eigin lysing-reit: magnvísitölur neyslu á mann 2024 (VI_PPS_EU27_2020_HAB) fyrir A01 (einstaklingsbundin neysla) og E011 (einkaneysluútgjöld heimila), ESB=100. Notað í forrit/neysla_naemniprof.py: sæti Íslands í neyslu á mann.",
+      "fyrirspurn": "prc_ppp_ind: freq=A, na_item=VI_PPS_EU27_2020_HAB, ppp_cat=A01 og E011, time=2024",
+      "response_updated": "2025-07-10T11:00:00+0200",
+      "retrieved_at_utc": "2026-08-15 (skv. lysing-reit skrárinnar)",
+      "last_verified_at_utc": "2026-08-16T18:03:43+00:00",
+      "sha256": "846ddc6a69522e3c2f869d54fe509efbb17b0d3eca674970f10505db2d900761",
+      "bytes": 6970
     }
   ],
   "validation": {
