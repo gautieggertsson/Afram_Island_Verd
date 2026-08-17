@@ -150,10 +150,10 @@ hráafritin fryst.
 
 Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
 SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Fimmta
-útgáfan, frá 16. ágúst 2026 (39 bls., eftir óháða úttekt: körfusamræmt
+útgáfan, frá 17. ágúst 2026 (39 bls., eftir óháða úttekt: körfusamræmt
 neyslumat á mynd 7, framreikningsnæmni, uppfærð ytri gjöld og
 frávikasafn án EFTA-ríkja), hefur hashið
-`7d56e5bcb2c969229ec6a109f0c8f7fe753cc40c7e154615f878f05b595d016f`.
+`7b0551e766799b15a01efdf7e8bfb60698fe0687583e5cb4dbc0f175ddac79a1`.
 Þriðja útgáfan, fyrr sama dag (39 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
 `579862c4c8a5933273bfc50e55e3fb63a0e82fa1485e876cef0fc4999c7c7556`.
