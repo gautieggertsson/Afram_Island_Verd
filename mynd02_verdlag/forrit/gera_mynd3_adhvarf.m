@@ -44,6 +44,16 @@ pIS = T.pli_E011(T.geo == "IS");
 predIS = exp(a + b * log(wIS));
 assert(abs(predIS - 130.64) < 0.05, 'Spáin fyrir Ísland stenst ekki viðmiðun.');
 
+% Bein mæling vinnustunda (vinnumarkaðsrannsóknin) og bil matsins,
+% lesið úr sömu frystu niðurstöðuskrá og kafli 4.1 styðst við.
+V = readtable(fullfile(ROOT, 'nidurstodur', 'vinnustundir_naemniprof.csv'), ...
+    'Delimiter', ';', 'VariableNamingRule', 'preserve', 'TextType', 'string');
+wDirect = V.timakaup_eur(startsWith(V.adferd, "Vinnumarkaðsrannsókn"));
+predDirect = exp(a + b * log(wDirect));
+assert(abs(predDirect - 124.1) < 0.05, 'Spágildi beinu mælingarinnar stenst ekki viðmiðun.');
+fravikMax = max(V.fravik);
+assert(abs(fravikMax - 0.3075) < 5e-4, 'Efri mörk fráviksbilsins standast ekki viðmiðun.');
+
 GRAY = [140 138 132]/255; BLUE = [42 120 214]/255;
 RED = [192 57 43]/255; INK = [26 26 26]/255; MUT = [107 107 107]/255;
 set(groot, 'DefaultAxesFontName', 'Helvetica', ...
@@ -66,11 +76,17 @@ for i = 1:height(E)
         'FontSize', 6, 'Color', MUT);
 end
 
+LRED = RED + (1 - RED) * 0.62;
+plot(ax, [wDirect wIS], [pIS pIS], '-', 'Color', LRED, 'LineWidth', 2.6);
 scatter(ax, wIS, pIS, 80, 'o', ...
     'MarkerFaceColor', RED, 'MarkerEdgeColor', 'none');
+scatter(ax, wDirect, pIS, 80, 'o', ...
+    'MarkerFaceColor', 'none', 'MarkerEdgeColor', RED, 'LineWidth', 1.3);
 
 plot(ax, [wIS wIS], [predIS pIS], ':', 'Color', RED, 'LineWidth', 1.1);
-text(ax, wIS*0.97, pIS*1.005, sprintf('Ísland: 161,7\nspáð: 131 (+24%%)'), ...
+plot(ax, [wDirect wDirect], [predDirect pIS], ':', 'Color', LRED, 'LineWidth', 1.1);
+text(ax, wDirect*0.96, pIS*1.005, ...
+    sprintf('Ísland: 161,7\nspáð miðað við laun: 124–131\nfrávik: +24 til +31%%'), ...
     'Color', RED, 'FontWeight', 'bold', 'FontSize', 9, ...
     'HorizontalAlignment', 'right');
 text(ax, 9.6, 176, ...
