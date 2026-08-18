@@ -149,10 +149,14 @@ hráafritin fryst.
 ## Viðmiðunarútgáfur greinarinnar
 
 Endurgerð skal miða við tiltekna útgáfu greinarinnar, auðkennda með
-SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Fimmta
-útgáfan, frá 17. ágúst 2026 (39 bls., eftir óháða úttekt: körfusamræmt
-neyslumat á mynd 7, framreikningsnæmni, uppfærð ytri gjöld og
-frávikasafn án EFTA-ríkja), hefur hashið
+SHA-256-hash PDF-skjalsins, ekki við skráarheiti eitt og sér. Gildandi
+smíð fimmtu útgáfu, frá 18. ágúst 2026 (38 bls.: næmnipróf með
+tekjuhugtaki Áfram Íslands fellt brott og dreifimynd verðlags og launa
+sýnir tvo Íslandspunkta með spágildunum 124 og 131), hefur hashið
+`e5a2f14148b7163bec7c1b74a2e37952ef1caa77964dea0f2eeedd23814b9d8b`.
+Fyrri smíð fimmtu útgáfu, frá 17. ágúst 2026 (39 bls., eftir óháða
+úttekt: körfusamræmt neyslumat á mynd 7, framreikningsnæmni, uppfærð
+ytri gjöld og frávikasafn án EFTA-ríkja), hafði hashið
 `598341dee335fc522461399535893ca8b30bcae33a66983136389986273bb0be`.
 Þriðja útgáfan, fyrr sama dag (39 bls., með samantektarsíðu,
 framreikningnum á mynd 4 og frávikasafni viðauka C), hefur hashið
